@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Provider\Application\Commands;
 
-use App\Framework\Application\Commands\Command;
+use App\SharedKernel\Application\Contracts\Command;
 
 final readonly class RegisterProviderCommand implements Command
 {
