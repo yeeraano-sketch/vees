@@ -20,7 +20,7 @@ final class ProviderProfile extends Entity
 
     protected function identity(): mixed
     {
-        return $this->phoneNumber->value();
+        return 'profile';
     }
 
     public function fullName(): FullName

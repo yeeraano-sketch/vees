@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Provider\Domain\Entities;
 
-use App\Provider\Domain\ValueObjects\WorkMode;
+use App\Provider\Domain\Enums\WorkMode;
 use App\SharedKernel\Domain\Entity;
 
 final class ProviderSettings extends Entity

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Provider\Domain\Entities;
 
-use App\Provider\Domain\ValueObjects\AvailabilityStatus;
+use App\Provider\Domain\Enums\AvailabilityStatus;
 use App\SharedKernel\Domain\Entity;
 
 final class ProviderAvailability extends Entity

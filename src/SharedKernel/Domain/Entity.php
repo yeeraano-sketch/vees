@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace App\SharedKernel\Domain;
 
+use App\SharedKernel\Domain\Traits\HasIdentity;
+
 abstract class Entity
 {
-    /**
-     * Returns the unique identity of the entity.
-     */
-    abstract protected function identity(): mixed;
+    use HasIdentity;
 
-    final public function equals(self $other): bool
-    {
-        return $this->identity() === $other->identity();
-    }
+    abstract protected function identity(): mixed;
 }

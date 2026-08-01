@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Provider\Domain\Entities;
 
+use App\Provider\Domain\Enums\VerificationStatus;
 use App\SharedKernel\Domain\Entity;
 
 final class ProviderVerification extends Entity
 {
     public function __construct(
-        private bool $verified = false,
+        private VerificationStatus $status = VerificationStatus::Pending,
     ) {
     }
 
@@ -18,18 +19,28 @@ final class ProviderVerification extends Entity
         return 'verification';
     }
 
-    public function isVerified(): bool
+    public function status(): VerificationStatus
     {
-        return $this->verified;
+        return $this->status;
     }
 
     public function verify(): void
     {
-        $this->verified = true;
+        $this->status = VerificationStatus::Verified;
     }
 
-    public function revoke(): void
+    public function reject(): void
     {
-        $this->verified = false;
+        $this->status = VerificationStatus::Rejected;
+    }
+
+    public function reset(): void
+    {
+        $this->status = VerificationStatus::Pending;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->status === VerificationStatus::Verified;
     }
 }
