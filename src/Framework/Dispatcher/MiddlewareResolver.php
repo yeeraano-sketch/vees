@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Dispatcher;
+namespace App\Framework\Dispatcher;
 
 use Illuminate\Contracts\Container\Container;
 

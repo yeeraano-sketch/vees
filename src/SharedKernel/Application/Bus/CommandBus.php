@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\SharedKernel\Application\Bus;
 
 use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Dispatcher\HandlerResolver;
+use App\Framework\Dispatcher\HandlerResolver;
 use App\SharedKernel\Application\Pipeline\Pipeline;
 
 final readonly class CommandBus
