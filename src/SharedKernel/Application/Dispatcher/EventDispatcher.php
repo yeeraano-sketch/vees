@@ -20,7 +20,7 @@ final readonly class EventDispatcher
 
         foreach (
 
-            $aggregate->pullEvents()
+            $aggregate->releaseEvents()
 
             as $event
 

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Matching\Application\Services;
 
 use App\Matching\Application\Commands\CreateMatchingCommand;
-use App\SharedKernel\Application\Bus\CommandBus;
+use App\SharedKernel\Application\Bus\TransactionalCommandBus;
 
 final readonly class CreateMatchingService
 {
     public function __construct(
-        private CommandBus $bus,
+        private TransactionalCommandBus $bus,
     ) {
     }
 
