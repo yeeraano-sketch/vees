@@ -1,4 +1,4 @@
-دستور منصة "وصل" (Wasl Platform Constitution)
+     دستور منصة "وصل" (Wasl Platform Constitution)
 
 المرحلة صفر: الأساس المتين (Phase 0: The Foundation)
 

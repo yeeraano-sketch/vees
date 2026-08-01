@@ -1,817 +1,275 @@
 # Subscription Context
 
-## Responsibility
+## Purpose
 
-The Subscription Context is responsible only for managing Provider subscriptions.
+The Subscription Context manages Provider subscriptions and determines whether a Provider is eligible to receive new Sessions.
 
-It owns the complete subscription lifecycle, including:
-
-- Subscription creation
-- Manual renewal
-- Activation
-- Expiration
-- Grace period
-- Subscription status
-- Eligibility for receiving new sessions
-
-## It Owns
-
-- Subscription
-- Subscription lifecycle
-- Subscription validity
-- Grace period
-- Expiration date
-- Renewal history
-
-## It Does Not Own
-
-- Provider profile
-- Provider availability
-- Sessions
-- Matching
-- Ratings
-- Notifications
-
-## Published Events
-
-(To be defined.)
-
-## Consumed Events
-
-(To be defined.)
-
+It is the single source of truth for subscription lifecycle.
 
 ---
 
-## Aggregate
+# Responsibility
 
-### Aggregate Root
+## Subscription Owns
+
+- Subscription
+- Subscription Plan
+- Subscription Period
+- Subscription Status
+- Grace Period
+- Renewal History
+- Work Mode Validation
+
+---
+
+## Subscription Does Not Own
+
+- Provider Profile
+- Payment Processing
+- Session Lifecycle
+- Matching
+- Rating
+- Notification
+
+Payment confirms successful payment.
+
+Subscription decides whether the Provider is eligible.
+
+---
+
+# Aggregate
+
+## Aggregate Root
 
 Subscription
 
-## Aggregate Responsibility
+---
 
-The Subscription aggregate is the single consistency boundary for subscription management.
+## Responsibilities
 
-It is responsible for:
+The Subscription Aggregate is responsible for:
 
-- Creating a subscription
-- Activating a subscription
-- Renewing a subscription
-- Expiring a subscription
-- Managing the grace period
-- Determining whether the subscription is eligible to receive new sessions
-
-The aggregate never manages:
-
-- Provider profile
-- Session lifecycle
-- Payment processing
-- Notifications
-
+- Creating subscriptions
+- Activating subscriptions
+- Renewing subscriptions
+- Expiring subscriptions
+- Managing Grace Period
+- Validating Work Modes
+- Determining Session eligibility
 
 ---
 
-## Business Invariants
+# Value Objects
 
-The following business rules must always hold true.
-
-### Subscription Ownership
-
-A Subscription always belongs to exactly one Provider.
-
-A Provider may have many subscriptions over time, but only one active subscription at any given moment.
-
-### Active Subscription
-
-Only one Subscription may be Active for the same Provider.
-
-### Expiration
-
-Every Subscription has a fixed start date and expiration date.
-
-### Grace Period
-
-A Grace Period begins immediately after the Subscription expires.
-
-During the Grace Period:
-
-- No new Sessions may be assigned.
-- Existing active Sessions may continue until completion.
-
-### Renewal
-
-Renewing a Subscription creates a new subscription period.
-
-Renewal never modifies historical subscription periods.
-
-### Eligibility
-
-Only an Active Subscription allows a Provider to receive new Sessions.
-
-## Invariant Rules
-
-Business Invariants are enforced inside the Subscription Aggregate.
-
-No Command may violate these rules.
-
-
----
-
-## State Model
-
-The Subscription aggregate has the following lifecycle states.
-
-### Draft
-
-The subscription has been created but is not yet active.
-
-### Active
-
-The subscription is valid.
-
-The Provider may receive new Sessions.
-
-### GracePeriod
-
-The subscription has expired.
-
-The Provider may finish existing Sessions but cannot receive new ones.
-
-### Expired
-
-The grace period has ended.
-
-The Provider is no longer eligible to receive any Sessions.
-
-### Cancelled
-
-The subscription has been permanently cancelled before expiration.
-
-## State Transitions
-
-Draft
-    │
-    ▼
-Active
-    │
-    ▼
-GracePeriod
-    │
-    ▼
-Expired
-
-Draft ─────────────► Cancelled
-
-Active ────────────► Cancelled
-
-## Transition Rules
-
-A Subscription never returns to a previous state.
-
-A cancelled Subscription cannot be reactivated.
-
-A renewed Subscription creates a new Subscription Aggregate instance rather than changing the lifecycle of an expired Subscription.
-
-
----
-
-## State Machine
-
-### Draft
-
-Allowed Commands
-
-- ActivateSubscription
-- CancelSubscription
-
-Forbidden Commands
-
-- RenewSubscription
-- ExpireSubscription
-- EndGracePeriod
-
----
-
-### Active
-
-Allowed Commands
-
-- ExpireSubscription
-- CancelSubscription
-
-Forbidden Commands
-
-- ActivateSubscription
-- EndGracePeriod
-
----
-
-### GracePeriod
-
-Allowed Commands
-
-- EndGracePeriod
-
-Forbidden Commands
-
-- ActivateSubscription
-- CancelSubscription
-- ExpireSubscription
-
----
-
-### Expired
-
-Allowed Commands
-
-None.
-
-Forbidden Commands
-
-- ActivateSubscription
-- RenewSubscription
-- CancelSubscription
-- ExpireSubscription
-- EndGracePeriod
-
----
-
-### Cancelled
-
-Allowed Commands
-
-None.
-
-Forbidden Commands
-
--
-cat >> docs/design/04-subscription-context.md <<'EOF'
-
----
-
-## State Machine
-
-### Draft
-
-Allowed Commands
-
-- ActivateSubscription
-- CancelSubscription
-
-Forbidden Commands
-
-- RenewSubscription
-- ExpireSubscription
-- EndGracePeriod
-
----
-
-### Active
-
-Allowed Commands
-
-- ExpireSubscription
-- CancelSubscription
-
-Forbidden Commands
-
-- ActivateSubscription
-- EndGracePeriod
-
----
-
-### GracePeriod
-
-Allowed Commands
-
-- EndGracePeriod
-
-Forbidden Commands
-
-- ActivateSubscription
-- CancelSubscription
-- ExpireSubscription
-
----
-
-### Expired
-
-Allowed Commands
-
-None.
-
-Forbidden Commands
-
-- ActivateSubscription
-- RenewSubscription
-- CancelSubscription
-- ExpireSubscription
-- EndGracePeriod
-
----
-
-### Cancelled
-
-Allowed Commands
-
-None.
-
-Forbidden Commands
-
-- ActivateSubscription
-- RenewSubscription
-- CancelSubscription
-- ExpireSubscription
-- EndGracePeriod
-
-## State Machine Rules
-
-Only commands explicitly allowed in the current state may execute.
-
-Invalid commands must be rejected.
-
-A successful command may produce one or more Domain Events.
-
-
----
-
-## Value Objects
-
-### SubscriptionStatus
-
-Represents the lifecycle status of a Subscription.
-
-Possible values:
-
-- Draft
-- Active
-- GracePeriod
-- Expired
-- Cancelled
-
-### SubscriptionPeriod
-
-Represents the validity period of a Subscription.
-
-Contains:
-
-- StartDate
+- SubscriptionPlan
+- SubscriptionPeriod
 - ExpirationDate
-
-### GracePeriod
-
-Represents the grace period following subscription expiration.
-
-Contains:
-
-- StartDate
-- EndDate
-
-### SubscriptionPlan
-
-Represents the selected subscription plan.
-
-Possible values:
-
-- Taxi
-- Delivery
-- TaxiAndDelivery
-
-### SubscriptionPrice
-
-Represents the monthly subscription fee.
-
-Rules:
-
-- Must be greater than zero.
-- Currency is Saudi Riyal (SAR).
-
-## Value Object Rules
-
-- Immutable.
-- Self-validating.
-- No identity.
-- Equality is based on value.
-
+- GracePeriod
+- WorkMode
+- SubscriptionStatus
 
 ---
 
-## Domain Events
+# Business Invariants
 
-The Subscription Context publishes the following Domain Events.
+## INV-101
 
-### SubscriptionCreated
-
-A new Subscription has been created.
-
-### SubscriptionActivated
-
-The Subscription has become active.
-
-### SubscriptionExpired
-
-The Subscription has reached its expiration date.
-
-### SubscriptionGracePeriodStarted
-
-The grace period has started.
-
-### SubscriptionGracePeriodEnded
-
-The grace period has ended.
-
-### SubscriptionCancelled
-
-The Subscription has been cancelled.
-
-## Event Rules
-
-- Events are immutable.
-- Events describe facts that already happened.
-- Events are expressed in the past tense.
-- Events contain only the data required by other Bounded Contexts.
-- Events never expose internal implementation details.
-
+A Subscription belongs to exactly one Provider.
 
 ---
 
-## Commands
+## INV-102
 
-The Subscription Context accepts the following Commands.
-
-### CreateSubscription
-
-Creates a new Subscription in the Draft state.
-
-### ActivateSubscription
-
-Activates a Draft Subscription.
-
-### ExpireSubscription
-
-Moves an Active Subscription to GracePeriod.
-
-### EndGracePeriod
-
-Moves a Subscription from GracePeriod to Expired.
-
-### CancelSubscription
-
-Cancels a Draft or Active Subscription.
-
-## Command Rules
-
-- Commands express business intent.
-- Commands are imperative.
-- Commands may be accepted or rejected.
-- Successful Commands may produce one or more Domain Events.
-- Failed Commands never produce Domain Events.
-
+Only one Active Subscription may exist per Provider.
 
 ---
 
-## Command Sources
+## INV-103
 
-Each Command has a well-defined source.
-
-| Command | Source |
-|---------|--------|
-| CreateSubscription | Administrator |
-| ActivateSubscription | Administrator |
-| ExpireSubscription | Scheduler |
-| EndGracePeriod | Scheduler |
-| CancelSubscription | Administrator |
-
-## Rules
-
-Every Command must have exactly one business source.
-
-A Command is never executed automatically without an identified source.
-
-Time-based Commands are triggered only by the Scheduler.
-
+Every Subscription has a Start Date and an Expiration Date.
 
 ---
 
-## Domain Policies
+## INV-104
 
-### Subscription Activation Policy
-
-A Subscription may be activated only after the subscription payment has been confirmed.
-
-### Session Eligibility Policy
-
-Only Providers with an Active Subscription may receive new Sessions.
-
-Providers in GracePeriod may complete existing Sessions but must not receive new ones.
-
-### Grace Period Policy
-
-The Grace Period always starts immediately after subscription expiration.
-
-The Grace Period lasts exactly 48 hours.
-
-### Renewal Policy
-
-A renewed subscription always creates a new Subscription.
-
-Historical subscription records are never modified.
-
-### Cancellation Policy
-
-A cancelled Subscription immediately loses eligibility to receive new Sessions.
-
-## Policy Rules
-
-Policies represent business rules.
-
-Policies may depend on business facts from outside the Aggregate.
-
-Policies never change aggregate state directly.
-
+Trial allows only one active Work Mode.
 
 ---
 
-## Public Contracts
+## INV-105
 
-The Subscription Context exposes only the following public contracts.
+Taxi Plan allows Taxi only.
 
-### Commands Accepted
+---
+
+## INV-106
+
+Delivery Plan allows Delivery only.
+
+---
+
+## INV-107
+
+Combined Plan allows Taxi and Delivery simultaneously.
+
+---
+
+## INV-108
+
+Busy Providers cannot receive additional Sessions.
+
+---
+
+## INV-109
+
+Renewal creates a new Subscription Period.
+
+---
+
+## INV-110
+
+Expired Subscriptions cannot become Active again.
+
+---
+
+# Commands
 
 - CreateSubscription
 - ActivateSubscription
+- RenewSubscription
 - ExpireSubscription
 - EndGracePeriod
 - CancelSubscription
+- ChangeWorkMode
 
-### Events Published
+---
+
+# Domain Events
 
 - SubscriptionCreated
 - SubscriptionActivated
+- SubscriptionRenewed
 - SubscriptionExpired
-- SubscriptionGracePeriodStarted
-- SubscriptionGracePeriodEnded
+- GracePeriodStarted
+- GracePeriodEnded
 - SubscriptionCancelled
-
-### Query Contracts
-
-The Subscription Context may expose read-only queries for:
-
-- Current Subscription Status
-- Current Subscription Plan
-- Subscription Validity Period
-- Grace Period Status
-- Provider Eligibility
-
-## Contract Rules
-
-- Other Bounded Contexts communicate only through these contracts.
-- Internal Aggregates are never exposed.
-- Internal Repositories are never exposed.
-- Internal State Machines are never exposed.
-- Internal Value Objects are never exposed.
-
+- WorkModeChanged
 
 ---
 
-## Entities
+# State Model
 
-### Aggregate Root
+Draft
 
-- Subscription
+↓
 
-### Child Entities
+Active
 
-None.
+↓
 
-## Rationale
+GracePeriod
 
-At the current MVP stage, the Subscription aggregate owns all of its business data directly.
+↓
 
-Subscription periods, plans, prices, and grace periods are modeled as Value Objects.
+Expired
 
-No child object currently has an independent identity or lifecycle.
+Draft → Cancelled
 
-If future business requirements introduce concepts such as invoices, payment transactions, or payment attempts managed inside this context, the model will be reviewed before introducing additional entities.
-
-
----
-
-## Domain Services
-
-None.
-
-## Rationale
-
-At the current MVP stage, all subscription business behavior belongs to the Subscription aggregate.
-
-No business operation currently spans multiple Subscription aggregates.
-
-If future requirements introduce cross-subscription calculations, billing coordination, or complex subscription policies involving multiple aggregates, a dedicated Domain Service may be introduced after architectural review.
-
+Active → Cancelled
 
 ---
 
-## Read Models
+# Business Rules
 
-The Subscription Context exposes the following read models.
-
-### SubscriptionSummaryView
-
-Contains:
-
-- SubscriptionId
-- ProviderId
-- SubscriptionStatus
-- SubscriptionPlan
-
-### SubscriptionValidityView
-
-Contains:
-
-- StartDate
-- ExpirationDate
-- GracePeriodStart
-- GracePeriodEnd
-- IsEligibleForNewSessions
-
-### SubscriptionHistoryView
-
-Contains:
-
-- ProviderId
-- SubscriptionId
-- SubscriptionPlan
-- SubscriptionStatus
-- ActivatedAt
-- ExpiredAt
-- CancelledAt
-
-## Read Model Rules
-
-- Read Models are optimized for queries.
-- Read Models contain no business behavior.
-- Read Models may be rebuilt from Domain Events.
-- Read Models are never used to enforce business rules.
-
+| Rule | Description |
+|------|-------------|
+| BR-101 | Trial lasts 30 days. |
+| BR-102 | Trial allows one active Work Mode. |
+| BR-103 | Taxi Plan enables Taxi only. |
+| BR-104 | Delivery Plan enables Delivery only. |
+| BR-105 | Combined Plan enables Taxi and Delivery. |
+| BR-106 | Busy Providers cannot receive new Sessions. |
+| BR-107 | Only Active Subscriptions receive Sessions. |
+| BR-108 | Renewal creates a new Subscription Period. |
 
 ---
 
-## Integration Rules & Event Flow
+# Error Model
 
-### Integration Rules
+| Code | Description |
+|------|-------------|
+| SUB-001 | Subscription already active |
+| SUB-002 | Subscription expired |
+| SUB-003 | Invalid Work Mode |
+| SUB-004 | Trial restriction violated |
+| SUB-005 | Grace Period ended |
+| SUB-006 | Subscription cancelled |
 
-The Subscription Context never accesses another Bounded Context directly.
+---
 
-Communication with other contexts happens only through:
+# Test Matrix
 
-- Domain Events
-- Public Contracts
+## Aggregate
 
-The Subscription Context never depends on:
+- Creation
+- Activation
+- Renewal
+- Expiration
+- Cancellation
 
-- Internal Aggregates
-- Internal Repositories
-- Internal State Machines
-- Internal Value Objects
+---
 
-of another Bounded Context.
+## Plans
 
-### Incoming Events
+- Trial
+- Taxi
+- Delivery
+- Combined
 
-- ProviderRegistered
-- ProviderActivated
+---
 
-### Outgoing Events
+## Work Modes
 
-- SubscriptionCreated
+- Taxi
+- Delivery
+- Taxi + Delivery
+
+---
+
+## Contracts
+
 - SubscriptionActivated
 - SubscriptionExpired
-- SubscriptionGracePeriodStarted
-- SubscriptionGracePeriodEnded
-- SubscriptionCancelled
-
-### Event Flow
-
-Provider Context
-        │
-        ▼
-ProviderRegistered
-        │
-        ▼
-Subscription Context
-        │
-        ▼
-SubscriptionCreated
-
-Administrator
-        │
-        ▼
-ActivateSubscription
-        │
-        ▼
-SubscriptionActivated
-        │
-        ▼
-Provider Context
-
-Scheduler
-        │
-        ▼
-ExpireSubscription
-        │
-        ▼
-SubscriptionExpired
-        │
-        ▼
-SubscriptionGracePeriodStarted
-        │
-        ▼
-Provider Context
-
-Scheduler
-        │
-        ▼
-EndGracePeriod
-        │
-        ▼
-SubscriptionGracePeriodEnded
-        │
-        ▼
-Provider Context
-
+- WorkModeChanged
 
 ---
 
-# Decision Log
+# Architecture Review
 
-## ADR-001
+- [x] Aggregate
+- [x] Invariants
+- [x] Commands
+- [x] Events
+- [x] Business Rules
+- [x] Error Model
+- [x] Tests
 
-Decision:
-Subscription is the only Aggregate Root.
+Status
 
-Reason:
-It is the single consistency boundary for subscription management.
-
----
-
-## ADR-002
-
-Decision:
-Subscription and Payment are separate concepts.
-
-Reason:
-The MVP supports manual payments only.
-Payment processing is outside the Subscription Context.
+PASSED
 
 ---
 
-## ADR-003
+# Subscription Context v2.0
 
-Decision:
-Every renewal creates a new Subscription.
+Status
 
-Reason:
-Historical subscription periods must never be modified.
+FROZEN
 
----
+Architecture Review
 
-## ADR-004
+PASSED
 
-Decision:
-The Subscription Context exposes only Public Contracts and Domain Events.
+Implementation Readiness
 
-Reason:
-Prevent direct coupling between Bounded Contexts.
-
----
-
-## ADR-005
-
-Decision:
-Grace Period is part of the Subscription lifecycle.
-
-Reason:
-Business rules require Providers to finish existing Sessions while preventing new assignments.
-
----
-
-## ADR-006
-
-Decision:
-The Subscription Aggregate contains no child entities in the MVP.
-
-Reason:
-No internal object currently has an independent identity or lifecycle.
-
----
-
-## ADR-007
-
-Decision:
-Business logic remains inside the Aggregate whenever possible.
-
-Reason:
-Maintain a Rich Domain Model and avoid Anemic Domain Models.
-
+PASSED

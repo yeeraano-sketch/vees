@@ -197,7 +197,6 @@ DeliveryFailed
 
 DeliveryAbandoned
 
-EOFcat >> docs/design/08-notification-context.md <<'EOF'
 
 ---
 
