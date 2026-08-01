@@ -13,6 +13,7 @@ final readonly class EloquentProviderRepository implements ProviderRepository
 {
     public function __construct(
         private ProviderPersistenceAssembler $assembler,
+        private AggregateCollector $collector,
     ) {
     }
 
@@ -21,6 +22,8 @@ final readonly class EloquentProviderRepository implements ProviderRepository
     ): void {
 
         $this->assembler->persist($provider);
+
+        $this->collector->add($provider);
     }
 
     public function findById(
