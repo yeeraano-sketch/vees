@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Subscription\Application\Handlers;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\SharedKernel\Application\Contracts\Command;
 use App\SharedKernel\Application\Contracts\CommandHandler;
 use App\SharedKernel\Contracts\Clock;

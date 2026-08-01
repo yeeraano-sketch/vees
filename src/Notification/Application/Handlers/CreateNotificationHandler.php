@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Notification\Application\Handlers;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\Notification\Application\Commands\CreateNotificationCommand;
 use App\Notification\Domain\Aggregates\Notification\NotificationFactory;
 use App\Notification\Domain\Contracts\NotificationRepository;

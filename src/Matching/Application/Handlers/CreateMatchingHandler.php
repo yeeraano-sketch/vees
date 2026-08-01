@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Matching\Application\Handlers;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\Matching\Application\Commands\CreateMatchingCommand;
 use App\Matching\Domain\Aggregates\Matching\MatchingFactory;
 use App\Matching\Domain\Contracts\MatchingRepository;

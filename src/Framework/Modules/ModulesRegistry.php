@@ -6,7 +6,7 @@ namespace App\Framework\Modules;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\Framework\Persistence\LaravelUnitOfWork;
 
 use App\SharedKernel\Application\EventBus\EventBus;

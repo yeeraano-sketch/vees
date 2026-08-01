@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\SharedKernel\Application\Bus;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\SharedKernel\Application\Contracts\Command;
 use App\SharedKernel\Application\Dispatcher\EventDispatcher;
 use App\SharedKernel\Application\Transactions\AggregateCollector;

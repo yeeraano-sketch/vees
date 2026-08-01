@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Session\Application\Handlers;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\Session\Application\Commands\CreateSessionCommand;
 use App\Session\Domain\Aggregates\Session\SessionFactory;
 use App\Session\Domain\Contracts\SessionRepository;

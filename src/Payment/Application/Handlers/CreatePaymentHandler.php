@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Payment\Application\Handlers;
 
-use App\Framework\Persistence\UnitOfWork;
+use App\SharedKernel\Application\Contracts\UnitOfWork;
 use App\Payment\Application\Commands\CreatePaymentCommand;
 use App\Payment\Domain\Aggregates\Payment\PaymentFactory;
 use App\Payment\Domain\Contracts\PaymentRepository;
