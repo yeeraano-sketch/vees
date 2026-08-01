@@ -16,6 +16,12 @@ use App\SharedKernel\Application\EventBus\SynchronousEventBus;
 use App\SharedKernel\Application\Subscribers\SubscriberRegistry;
 use App\SharedKernel\Application\Transactions\AggregateCollector;
 
+use App\SharedKernel\Contracts\Clock;
+use App\SharedKernel\Contracts\UuidGenerator;
+
+use App\SharedKernel\Infrastructure\Clock\SystemClock;
+use App\SharedKernel\Infrastructure\Uuid\RamseyUuidGenerator;
+
 final readonly class ModulesRegistry
 {
     public function __construct(
@@ -55,6 +61,16 @@ final readonly class ModulesRegistry
 
         $this->app->singleton(
             TransactionalCommandBus::class,
+        );
+
+        $this->app->singleton(
+            Clock::class,
+            SystemClock::class,
+        );
+
+        $this->app->singleton(
+            UuidGenerator::class,
+            RamseyUuidGenerator::class,
         );
     }
 }
