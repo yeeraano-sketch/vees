@@ -16,7 +16,7 @@ final readonly class GetUserByIdHandler
     ) {
     }
 
-    public function __invoke(GetUserByIdQuery $query): ?UserDto
+    public function handle(GetUserByIdQuery $query): ?UserDto
     {
         $user = $this->users->findById(
             new UserId($query->id),
