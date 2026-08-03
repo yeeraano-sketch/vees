@@ -83,19 +83,12 @@ final class Provider extends AggregateRoot
     public function snapshot(): array
     {
         return [
-
-            'id' => (string) \$this->id,
-
-            'profile' => \$this->profile()->toArray(),
-
-            'availability' => \$this->availability()->toArray(),
-
-            'verification' => \$this->verification()->toArray(),
-
-            'settings' => \$this->settings()->toArray(),
-
-            'work_mode' => \$this->workMode()->value,
+            'id' => (string) $this->id,
+            'profile' => $this->profile()->toArray(),
+            'availability' => $this->availability()->toArray(),
+            'verification' => $this->verification()->toArray(),
+            'settings' => $this->settings()->toArray(),
+            'work_mode' => $this->workMode->value,
         ];
     }
-
 }
