@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Application\Commands;
+namespace Vees\Core\Provider\Application\Commands;
 
-use App\SharedKernel\Application\Contracts\Command;
-use App\Provider\Presentation\Http\Requests\RegisterProviderRequest;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\Provider\Presentation\Http\Requests\RegisterProviderRequest;
 use Ramsey\Uuid\Uuid;
 
 final readonly class RegisterProviderCommand implements Command

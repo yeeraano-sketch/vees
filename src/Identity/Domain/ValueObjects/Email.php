@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Domain\ValueObjects;
+namespace Vees\Core\Identity\Domain\ValueObjects;
 
-use App\Identity\Domain\Exceptions\InvalidEmail;
-use App\SharedKernel\Domain\ValueObject;
+use Vees\Core\Identity\Domain\Exceptions\InvalidEmail;
+use Vees\Core\SharedKernel\Domain\ValueObject;
 
 final readonly class Email extends ValueObject
 {

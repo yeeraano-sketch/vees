@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Infrastructure\Providers;
+namespace Vees\Core\Session\Infrastructure\Providers;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Session\Domain\Contracts\SessionRepository;
-use App\Session\Domain\Aggregates\Session\SessionFactory;
+use Vees\Core\Session\Domain\Contracts\SessionRepository;
+use Vees\Core\Session\Domain\Aggregates\Session\SessionFactory;
 
-use App\Session\Infrastructure\Persistence\Eloquent\Assemblers\SessionPersistenceAssembler;
-use App\Session\Infrastructure\Persistence\Eloquent\Mappers\SessionMapper;
-use App\Session\Infrastructure\Persistence\Eloquent\Repositories\EloquentSessionRepository;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Assemblers\SessionPersistenceAssembler;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Mappers\SessionMapper;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Repositories\EloquentSessionRepository;
 
 final readonly class SessionRegistrar
 {

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Infrastructure\Persistence\Eloquent\Repositories;
+namespace Vees\Core\Session\Infrastructure\Persistence\Eloquent\Repositories;
 
-use App\Session\Domain\Aggregates\Session\Session;
-use App\Session\Domain\Contracts\SessionRepository;
-use App\Session\Domain\ValueObjects\SessionId;
-use App\Session\Infrastructure\Persistence\Eloquent\Assemblers\SessionPersistenceAssembler;
-use App\Session\Infrastructure\Persistence\Eloquent\Models\SessionModel;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\Session\Domain\Aggregates\Session\Session;
+use Vees\Core\Session\Domain\Contracts\SessionRepository;
+use Vees\Core\Session\Domain\ValueObjects\SessionId;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Assemblers\SessionPersistenceAssembler;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Models\SessionModel;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class EloquentSessionRepository implements SessionRepository
 {

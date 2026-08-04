@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Domain\ValueObjects;
+namespace Vees\Core\Payment\Domain\ValueObjects;
 
 final readonly class Money
 {

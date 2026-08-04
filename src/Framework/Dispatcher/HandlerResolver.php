@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Dispatcher;
+namespace Vees\Core\Framework\Dispatcher;
 
 use Illuminate\Contracts\Container\Container;
 use RuntimeException;

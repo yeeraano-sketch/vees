@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Application\Services;
+namespace Vees\Core\Matching\Application\Services;
 
-use App\Matching\Application\Commands\CreateMatchingCommand;
-use App\SharedKernel\Application\Bus\TransactionalCommandBus;
+use Vees\Core\Matching\Application\Commands\CreateMatchingCommand;
+use Vees\Core\SharedKernel\Application\Bus\TransactionalCommandBus;
 
 final readonly class CreateMatchingService
 {

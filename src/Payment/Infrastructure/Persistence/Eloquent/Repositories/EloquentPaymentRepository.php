@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Infrastructure\Persistence\Eloquent\Repositories;
+namespace Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Repositories;
 
-use App\Payment\Domain\Aggregates\Payment\Payment;
-use App\Payment\Domain\Contracts\PaymentRepository;
-use App\Payment\Domain\ValueObjects\PaymentId;
-use App\Payment\Infrastructure\Persistence\Eloquent\Assemblers\PaymentPersistenceAssembler;
-use App\Payment\Infrastructure\Persistence\Eloquent\Models\PaymentModel;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\Payment\Domain\Aggregates\Payment\Payment;
+use Vees\Core\Payment\Domain\Contracts\PaymentRepository;
+use Vees\Core\Payment\Domain\ValueObjects\PaymentId;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Assemblers\PaymentPersistenceAssembler;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Models\PaymentModel;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class EloquentPaymentRepository implements PaymentRepository
 {

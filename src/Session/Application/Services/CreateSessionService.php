@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Application\Services;
+namespace Vees\Core\Session\Application\Services;
 
-use App\Session\Application\Commands\CreateSessionCommand;
-use App\SharedKernel\Application\Bus\TransactionalCommandBus;
+use Vees\Core\Session\Application\Commands\CreateSessionCommand;
+use Vees\Core\SharedKernel\Application\Bus\TransactionalCommandBus;
 
 final readonly class CreateSessionService
 {

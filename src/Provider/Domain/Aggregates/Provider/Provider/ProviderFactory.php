@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\Aggregates\Provider;
+namespace Vees\Core\Provider\Domain\Aggregates\Provider;
 
-use App\Provider\Domain\Entities\ProviderAvailability;
-use App\Provider\Domain\Entities\ProviderProfile;
-use App\Provider\Domain\Entities\ProviderSettings;
-use App\Provider\Domain\Entities\ProviderVerification;
-use App\Provider\Domain\ValueObjects\ProviderId;
-use App\Provider\Domain\ValueObjects\WorkMode;
+use Vees\Core\Provider\Domain\Entities\ProviderAvailability;
+use Vees\Core\Provider\Domain\Entities\ProviderProfile;
+use Vees\Core\Provider\Domain\Entities\ProviderSettings;
+use Vees\Core\Provider\Domain\Entities\ProviderVerification;
+use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
+use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
 
 final readonly class ProviderFactory
 {

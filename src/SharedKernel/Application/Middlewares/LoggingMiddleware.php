@@ -2,17 +2,32 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Middlewares;
+namespace Vees\Core\SharedKernel\Application\Middlewares;
 
-use App\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Contracts\Middleware;
+use Psr\Log\LoggerInterface;
 
-final class LoggingMiddleware implements Middleware
+final readonly class LoggingMiddleware implements Middleware
 {
+    public function __construct(
+        private ?LoggerInterface $logger = null,
+    ) {
+    }
+
     public function process(
         mixed $message,
         callable $next,
     ): mixed {
+        $this->logger?->info('Processing message', [
+            'type' => get_class($message),
+        ]);
 
-        return $next($message);
+        $result = $next($message);
+
+        $this->logger?->info('Message processed', [
+            'type' => get_class($message),
+        ]);
+
+        return $result;
     }
 }

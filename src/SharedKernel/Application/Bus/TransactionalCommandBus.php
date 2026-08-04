@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Bus;
+namespace Vees\Core\SharedKernel\Application\Bus;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Dispatcher\EventDispatcher;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Dispatcher\EventDispatcher;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class TransactionalCommandBus
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Infrastructure\Persistence\Eloquent\Repositories;
+namespace Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Repositories;
 
-use App\Provider\Domain\Aggregates\Provider\Provider;
-use App\Provider\Domain\Contracts\ProviderRepository;
-use App\Provider\Domain\ValueObjects\ProviderId;
-use App\Provider\Infrastructure\Persistence\Eloquent\Assemblers\ProviderPersistenceAssembler;
+use Vees\Core\Provider\Domain\Aggregates\Provider\Provider;
+use Vees\Core\Provider\Domain\Contracts\ProviderRepository;
+use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
+use Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Assemblers\ProviderPersistenceAssembler;
 
 final readonly class EloquentProviderRepository implements ProviderRepository
 {

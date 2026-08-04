@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Contracts;
+namespace Vees\Core\SharedKernel\Contracts;
 
-use App\SharedKernel\Domain\DomainEvent;
+use Vees\Core\SharedKernel\Domain\DomainEvent;
 
 interface EventBus
 {

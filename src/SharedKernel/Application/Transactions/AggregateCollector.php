@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Transactions;
+namespace Vees\Core\SharedKernel\Application\Transactions;
 
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final class AggregateCollector
 {

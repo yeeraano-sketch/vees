@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Infrastructure\Providers;
+namespace Vees\Core\Subscription\Infrastructure\Providers;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Subscription\Domain\Contracts\SubscriptionRepository;
-use App\Subscription\Domain\Aggregates\Subscription\SubscriptionFactory;
+use Vees\Core\Subscription\Domain\Contracts\SubscriptionRepository;
+use Vees\Core\Subscription\Domain\Aggregates\Subscription\SubscriptionFactory;
 
-use App\Subscription\Infrastructure\Persistence\Eloquent\Assemblers\SubscriptionPersistenceAssembler;
-use App\Subscription\Infrastructure\Persistence\Eloquent\Mappers\SubscriptionMapper;
-use App\Subscription\Infrastructure\Persistence\Eloquent\Repositories\EloquentSubscriptionRepository;
+use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Assemblers\SubscriptionPersistenceAssembler;
+use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Mappers\SubscriptionMapper;
+use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Repositories\EloquentSubscriptionRepository;
 
 final readonly class SubscriptionRegistrar
 {

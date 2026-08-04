@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Pipeline;
+namespace Vees\Core\SharedKernel\Application\Pipeline;
 
-use App\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Contracts\Middleware;
 
 final class MiddlewarePipeline
 {

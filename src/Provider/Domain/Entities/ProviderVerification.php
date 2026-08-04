@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\Entities;
+namespace Vees\Core\Provider\Domain\Entities;
 
-use App\Provider\Domain\Enums\VerificationStatus;
-use App\SharedKernel\Domain\Entity;
+use Vees\Core\Provider\Domain\Enums\VerificationStatus;
+use Vees\Core\SharedKernel\Domain\Entity;
 
 final class ProviderVerification extends Entity
 {

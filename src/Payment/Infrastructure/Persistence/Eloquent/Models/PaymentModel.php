@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Infrastructure\Persistence\Eloquent\Models;
+namespace Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;

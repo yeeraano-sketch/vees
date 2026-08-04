@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Domain\Contracts;
+namespace Vees\Core\Session\Domain\Contracts;
 
-use App\Session\Domain\Aggregates\Session\Session;
-use App\Session\Domain\ValueObjects\SessionId;
+use Vees\Core\Session\Domain\Aggregates\Session\Session;
+use Vees\Core\Session\Domain\ValueObjects\SessionId;
 
 interface SessionRepository
 {

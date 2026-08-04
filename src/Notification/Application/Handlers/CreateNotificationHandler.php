@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Application\Handlers;
+namespace Vees\Core\Notification\Application\Handlers;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\Notification\Application\Commands\CreateNotificationCommand;
-use App\Notification\Domain\Aggregates\Notification\NotificationFactory;
-use App\Notification\Domain\Contracts\NotificationRepository;
-use App\Notification\Domain\ValueObjects\NotificationId;
-use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Contracts\CommandHandler;
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\Notification\Application\Commands\CreateNotificationCommand;
+use Vees\Core\Notification\Domain\Aggregates\Notification\NotificationFactory;
+use Vees\Core\Notification\Domain\Contracts\NotificationRepository;
+use Vees\Core\Notification\Domain\ValueObjects\NotificationId;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
 final readonly class CreateNotificationHandler implements CommandHandler
 {

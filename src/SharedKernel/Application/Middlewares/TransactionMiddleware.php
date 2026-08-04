@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Middlewares;
+namespace Vees\Core\SharedKernel\Application\Middlewares;
 
-use App\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Contracts\Middleware;
 
 final class TransactionMiddleware implements Middleware
 {

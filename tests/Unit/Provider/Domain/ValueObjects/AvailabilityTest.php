@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Provider\Domain\ValueObjects;
+namespace Vees\Core\Tests\Unit\Provider\Domain\ValueObjects;
 
-use App\Provider\Domain\ValueObjects\Availability;
+use Vees\Core\Provider\Domain\ValueObjects\Availability;
 use PHPUnit\Framework\TestCase;
 
 class AvailabilityTest extends TestCase

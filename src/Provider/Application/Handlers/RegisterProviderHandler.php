@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Application\Handlers;
+namespace Vees\Core\Provider\Application\Handlers;
 
-use App\Provider\Application\Commands\RegisterProviderCommand;
-use App\Provider\Domain\Aggregates\Provider\ProviderFactory;
-use App\Provider\Domain\Contracts\ProviderRepository;
-use App\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\Provider\Application\Commands\RegisterProviderCommand;
+use Vees\Core\Provider\Domain\Aggregates\Provider\ProviderFactory;
+use Vees\Core\Provider\Domain\Contracts\ProviderRepository;
+use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
 
 final readonly class RegisterProviderHandler implements CommandHandler
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Infrastructure\Uuid;
+namespace Vees\Core\SharedKernel\Infrastructure\Uuid;
 
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 use Ramsey\Uuid\Uuid;
 
 final readonly class RamseyUuidGenerator implements UuidGenerator

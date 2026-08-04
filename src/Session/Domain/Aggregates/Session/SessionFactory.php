@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Domain\Aggregates\Session;
+namespace Vees\Core\Session\Domain\Aggregates\Session;
 
-use App\Session\Domain\ValueObjects\SessionId;
+use Vees\Core\Session\Domain\ValueObjects\SessionId;
 
 final readonly class SessionFactory
 {

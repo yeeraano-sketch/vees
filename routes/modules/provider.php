@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Vees\Core\Provider\Presentation\Http\Controllers\ProviderController;
 
-use App\Provider\Presentation\Http\Controllers\RegisterProviderController;
-
-Route::post(
-    '/providers',
-    RegisterProviderController::class,
-);
+Route::post('/providers', [ProviderController::class, 'store']);

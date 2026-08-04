@@ -2,17 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Middlewares;
+namespace Vees\Core\SharedKernel\Application\Middlewares;
 
-use App\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Dispatcher\EventDispatcher;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
-final class EventDispatchMiddleware implements Middleware
+final readonly class EventDispatchMiddleware implements Middleware
 {
+    public function __construct(
+        private EventDispatcher $dispatcher,
+    ) {
+    }
+
     public function process(
         mixed $message,
         callable $next,
     ): mixed {
+        $result = $next($message);
 
-        return $next($message);
+        if ($result instanceof AggregateRoot) {
+            $this->dispatcher->dispatchFrom($result);
+        }
+
+        return $result;
     }
 }

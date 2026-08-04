@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Application\Handlers;
+namespace Vees\Core\Framework\Application\Handlers;
 
-use App\Framework\Application\Commands\Command;
-use App\SharedKernel\Domain\Result;
+use Vees\Core\Framework\Application\Commands\Command;
+use Vees\Core\SharedKernel\Domain\Result;
 
 interface CommandHandler
 {

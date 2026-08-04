@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Infrastructure\Persistence\Eloquent\Assemblers;
+namespace Vees\Core\Session\Infrastructure\Persistence\Eloquent\Assemblers;
 
-use App\Session\Domain\Aggregates\Session\Session;
-use App\Session\Infrastructure\Persistence\Eloquent\Mappers\SessionMapper;
-use App\Session\Infrastructure\Persistence\Eloquent\Models\SessionModel;
+use Vees\Core\Session\Domain\Aggregates\Session\Session;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Mappers\SessionMapper;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Models\SessionModel;
 
 final readonly class SessionPersistenceAssembler
 {

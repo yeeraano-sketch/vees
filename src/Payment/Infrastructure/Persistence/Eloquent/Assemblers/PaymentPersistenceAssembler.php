@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Infrastructure\Persistence\Eloquent\Assemblers;
+namespace Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Assemblers;
 
-use App\Payment\Domain\Aggregates\Payment\Payment;
-use App\Payment\Infrastructure\Persistence\Eloquent\Mappers\PaymentMapper;
-use App\Payment\Infrastructure\Persistence\Eloquent\Models\PaymentModel;
+use Vees\Core\Payment\Domain\Aggregates\Payment\Payment;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Mappers\PaymentMapper;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Models\PaymentModel;
 
 final readonly class PaymentPersistenceAssembler
 {

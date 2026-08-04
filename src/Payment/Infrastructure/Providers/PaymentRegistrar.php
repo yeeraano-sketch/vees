@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Infrastructure\Providers;
+namespace Vees\Core\Payment\Infrastructure\Providers;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Payment\Domain\Contracts\PaymentRepository;
-use App\Payment\Domain\Aggregates\Payment\PaymentFactory;
+use Vees\Core\Payment\Domain\Contracts\PaymentRepository;
+use Vees\Core\Payment\Domain\Aggregates\Payment\PaymentFactory;
 
-use App\Payment\Infrastructure\Persistence\Eloquent\Assemblers\PaymentPersistenceAssembler;
-use App\Payment\Infrastructure\Persistence\Eloquent\Mappers\PaymentMapper;
-use App\Payment\Infrastructure\Persistence\Eloquent\Repositories\EloquentPaymentRepository;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Assemblers\PaymentPersistenceAssembler;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Mappers\PaymentMapper;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Repositories\EloquentPaymentRepository;
 
 final readonly class PaymentRegistrar
 {

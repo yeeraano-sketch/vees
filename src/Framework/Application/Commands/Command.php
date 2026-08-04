@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Application\Commands;
+namespace Vees\Core\Framework\Application\Commands;
 
 interface Command
 {

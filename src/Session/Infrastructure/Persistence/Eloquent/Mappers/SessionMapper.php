@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Infrastructure\Persistence\Eloquent\Mappers;
+namespace Vees\Core\Session\Infrastructure\Persistence\Eloquent\Mappers;
 
-use App\Session\Domain\Aggregates\Session\Session;
-use App\Session\Infrastructure\Persistence\Eloquent\Models\SessionModel;
+use Vees\Core\Session\Domain\Aggregates\Session\Session;
+use Vees\Core\Session\Infrastructure\Persistence\Eloquent\Models\SessionModel;
 
 final class SessionMapper
 {

@@ -1,29 +1,13 @@
 <?php
-
 declare(strict_types=1);
-
-namespace App\Matching\Domain\Events;
-
-use App\Matching\Domain\ValueObjects\MatchingId;
-use App\SharedKernel\Domain\Events\AbstractDomainEvent;
-
+namespace Vees\Core\Matching\Domain\Events;
+use Vees\Core\SharedKernel\Domain\Events\AbstractDomainEvent;
 final class ProviderMatched extends AbstractDomainEvent
 {
-    public function __construct(
-        private readonly MatchingId $matchingId,
-    ) {
-        parent::__construct();
+    public function __construct(string $matchingId, ?string $correlationId = null, ?string $causationId = null) {
+        parent::__construct($matchingId, $correlationId, $causationId);
     }
-
-    public function aggregateId(): string
-    {
-        return (string) $this->matchingId;
-    }
-
-    public function payload(): array
-    {
-        return [
-            'matchingId' => (string) $this->matchingId,
-        ];
-    }
+    public function entityType(): string { return 'Matching'; }
+    public function producer(): string { return 'DispatchEngine'; }
+    public function payload(): array { return ['matchingId' => $this->entityId()]; }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Application\DTOs;
+namespace Vees\Core\Matching\Application\DTOs;
 
 final readonly class MatchingDto
 {

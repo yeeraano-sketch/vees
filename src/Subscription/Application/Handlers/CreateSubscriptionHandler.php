@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Application\Handlers;
+namespace Vees\Core\Subscription\Application\Handlers;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Contracts\CommandHandler;
-use App\SharedKernel\Contracts\Clock;
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Contracts\Clock;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
-use App\Subscription\Application\Commands\CreateSubscriptionCommand;
+use Vees\Core\Subscription\Application\Commands\CreateSubscriptionCommand;
 
-use App\Subscription\Domain\Aggregates\Subscription\SubscriptionFactory;
-use App\Subscription\Domain\Contracts\SubscriptionRepository;
-use App\Subscription\Domain\Enums\SubscriptionPlan;
-use App\Subscription\Domain\ValueObjects\SubscriptionId;
-use App\Subscription\Domain\ValueObjects\SubscriptionPeriod;
+use Vees\Core\Subscription\Domain\Aggregates\Subscription\SubscriptionFactory;
+use Vees\Core\Subscription\Domain\Contracts\SubscriptionRepository;
+use Vees\Core\Subscription\Domain\Enums\SubscriptionPlan;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionId;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionPeriod;
 
 final readonly class CreateSubscriptionHandler implements CommandHandler
 {

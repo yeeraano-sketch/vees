@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Domain\Collections;
+namespace Vees\Core\SharedKernel\Domain\Collections;
 
 use Countable;
 use IteratorAggregate;

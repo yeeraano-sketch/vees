@@ -1,29 +1,13 @@
 <?php
-
 declare(strict_types=1);
-
-namespace App\Provider\Domain\Aggregates\Provider\Events;
-
-use App\Provider\Domain\ValueObjects\ProviderId;
-use App\SharedKernel\Domain\Events\AbstractDomainEvent;
-
+namespace Vees\Core\Provider\Domain\Aggregates\Provider\Events;
+use Vees\Core\SharedKernel\Domain\Events\AbstractDomainEvent;
 final class ProviderActivated extends AbstractDomainEvent
 {
-    public function __construct(
-        private readonly ProviderId $providerId,
-    ) {
-        parent::__construct();
+    public function __construct(string $providerId, ?string $correlationId = null, ?string $causationId = null) {
+        parent::__construct($providerId, $correlationId, $causationId);
     }
-
-    public function aggregateId(): string
-    {
-        return (string) $this->providerId;
-    }
-
-    public function payload(): array
-    {
-        return [
-            'providerId' => (string) $this->providerId,
-        ];
-    }
+    public function entityType(): string { return 'Provider'; }
+    public function producer(): string { return 'ProviderModule'; }
+    public function payload(): array { return ['providerId' => $this->entityId()]; }
 }

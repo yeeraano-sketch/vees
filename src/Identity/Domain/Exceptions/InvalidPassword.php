@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Domain\Exceptions;
+namespace Vees\Core\Identity\Domain\Exceptions;
 
 use DomainException;
 

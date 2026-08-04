@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Provider\Domain\Entities;
+namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
-use App\Provider\Domain\Entities\ProviderVerification;
-use App\Provider\Domain\Enums\VerificationStatus;
+use Vees\Core\Provider\Domain\Entities\ProviderVerification;
+use Vees\Core\Provider\Domain\Enums\VerificationStatus;
 use PHPUnit\Framework\TestCase;
 
 class ProviderVerificationTest extends TestCase

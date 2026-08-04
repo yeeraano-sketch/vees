@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Domain\Aggregates\Matching;
+namespace Vees\Core\Matching\Domain\Aggregates\Matching;
 
-use App\Matching\Domain\ValueObjects\MatchingId;
+use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
 
 final readonly class MatchingFactory
 {

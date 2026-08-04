@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Application\Queries;
+namespace Vees\Core\Session\Application\Queries;
 
-use App\Framework\Application\Queries\Query;
+use Vees\Core\Framework\Application\Queries\Query;
 
 final readonly class GetSessionByIdQuery implements Query
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Domain;
+namespace Vees\Core\SharedKernel\Domain;
 
-use App\SharedKernel\Domain\Traits\HasIdentity;
+use Vees\Core\SharedKernel\Domain\Traits\HasIdentity;
 
 abstract class Entity
 {

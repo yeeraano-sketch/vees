@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Domain\Enums;
+namespace Vees\Core\Payment\Domain\Enums;
 
 enum PaymentMethod: string
 {

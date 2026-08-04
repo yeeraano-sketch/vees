@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Domain\Repositories;
+namespace Vees\Core\Identity\Domain\Repositories;
 
-use App\Identity\Domain\Aggregates\User;
-use App\Identity\Domain\ValueObjects\Email;
-use App\Identity\Domain\ValueObjects\UserId;
+use Vees\Core\Identity\Domain\Aggregates\User;
+use Vees\Core\Identity\Domain\ValueObjects\Email;
+use Vees\Core\Identity\Domain\ValueObjects\UserId;
 
 interface UserRepository
 {

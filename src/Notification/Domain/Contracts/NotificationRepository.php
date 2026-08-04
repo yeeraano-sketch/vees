@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Domain\Contracts;
+namespace Vees\Core\Notification\Domain\Contracts;
 
-use App\Notification\Domain\Aggregates\Notification\Notification;
-use App\Notification\Domain\ValueObjects\NotificationId;
+use Vees\Core\Notification\Domain\Aggregates\Notification\Notification;
+use Vees\Core\Notification\Domain\ValueObjects\NotificationId;
 
 interface NotificationRepository
 {

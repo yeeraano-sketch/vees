@@ -2,15 +2,32 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Domain\Events;
+namespace Vees\Core\Identity\Domain\Events;
 
-use App\SharedKernel\Domain\DomainEvent;
+use Vees\Core\SharedKernel\Domain\Events\AbstractDomainEvent;
 
-final readonly class UserDeactivated extends DomainEvent
+final class UserDeactivated extends AbstractDomainEvent
 {
     public function __construct(
-        public string $userId,
+        string $userId,
+        ?string $correlationId = null,
+        ?string $causationId = null
     ) {
-        parent::__construct();
+        parent::__construct($userId, $correlationId, $causationId);
+    }
+
+    public function entityType(): string
+    {
+        return 'User';
+    }
+
+    public function producer(): string
+    {
+        return 'IdentityModule';
+    }
+
+    public function payload(): array
+    {
+        return ['userId' => $this->entityId()];
     }
 }

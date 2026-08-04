@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Infrastructure\Persistence\Eloquent\Mappers;
+namespace Vees\Core\Matching\Infrastructure\Persistence\Eloquent\Mappers;
 
-use App\Matching\Domain\Aggregates\Matching\Matching;
-use App\Matching\Infrastructure\Persistence\Eloquent\Models\MatchingModel;
+use Vees\Core\Matching\Domain\Aggregates\Matching\Matching;
+use Vees\Core\Matching\Infrastructure\Persistence\Eloquent\Models\MatchingModel;
 
 final class MatchingMapper
 {

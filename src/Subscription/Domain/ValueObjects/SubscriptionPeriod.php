@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\ValueObjects;
+namespace Vees\Core\Subscription\Domain\ValueObjects;
 
 use DateTimeImmutable;
 

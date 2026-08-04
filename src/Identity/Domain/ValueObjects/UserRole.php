@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Domain\ValueObjects;
+namespace Vees\Core\Identity\Domain\ValueObjects;
 
 enum UserRole: string
 {

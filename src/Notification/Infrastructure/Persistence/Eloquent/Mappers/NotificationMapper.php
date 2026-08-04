@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Infrastructure\Persistence\Eloquent\Mappers;
+namespace Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Mappers;
 
-use App\Notification\Domain\Aggregates\Notification\Notification;
-use App\Notification\Infrastructure\Persistence\Eloquent\Models\NotificationModel;
+use Vees\Core\Notification\Domain\Aggregates\Notification\Notification;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Models\NotificationModel;
 
 final class NotificationMapper
 {

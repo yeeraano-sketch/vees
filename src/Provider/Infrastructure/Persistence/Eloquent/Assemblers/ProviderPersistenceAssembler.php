@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Infrastructure\Persistence\Eloquent\Assemblers;
+namespace Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Assemblers;
 
-use App\Provider\Domain\Aggregates\Provider\Provider;
-use App\Provider\Infrastructure\Persistence\Eloquent\Mappers\ProviderMapper;
-use App\Provider\Infrastructure\Persistence\Eloquent\Models\ProviderModel;
+use Vees\Core\Provider\Domain\Aggregates\Provider\Provider;
+use Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Mappers\ProviderMapper;
+use Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Models\ProviderModel;
 
 final readonly class ProviderPersistenceAssembler
 {

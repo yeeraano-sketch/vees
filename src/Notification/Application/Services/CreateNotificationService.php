@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Application\Services;
+namespace Vees\Core\Notification\Application\Services;
 
-use App\Notification\Application\Commands\CreateNotificationCommand;
-use App\SharedKernel\Application\Bus\TransactionalCommandBus;
+use Vees\Core\Notification\Application\Commands\CreateNotificationCommand;
+use Vees\Core\SharedKernel\Application\Bus\TransactionalCommandBus;
 
 final readonly class CreateNotificationService
 {

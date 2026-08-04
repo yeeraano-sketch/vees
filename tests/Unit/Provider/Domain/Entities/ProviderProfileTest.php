@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Provider\Domain\Entities;
+namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
-use App\Provider\Domain\Entities\ProviderProfile;
-use App\Provider\Domain\ValueObjects\FullName;
-use App\Provider\Domain\ValueObjects\PhoneNumber;
-use App\Provider\Domain\ValueObjects\City;
+use Vees\Core\Provider\Domain\Entities\ProviderProfile;
+use Vees\Core\Provider\Domain\ValueObjects\FullName;
+use Vees\Core\Provider\Domain\ValueObjects\PhoneNumber;
+use Vees\Core\Provider\Domain\ValueObjects\City;
 use PHPUnit\Framework\TestCase;
 
 class ProviderProfileTest extends TestCase

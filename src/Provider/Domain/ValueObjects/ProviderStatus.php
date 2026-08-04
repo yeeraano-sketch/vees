@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\ValueObjects;
+namespace Vees\Core\Provider\Domain\ValueObjects;
 
 enum ProviderStatus: string
 {

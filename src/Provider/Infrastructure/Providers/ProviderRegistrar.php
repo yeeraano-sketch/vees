@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Infrastructure\Providers;
+namespace Vees\Core\Provider\Infrastructure\Providers;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Provider\Domain\Contracts\ProviderRepository;
-use App\Provider\Domain\Aggregates\Provider\ProviderFactory;
+use Vees\Core\Provider\Domain\Contracts\ProviderRepository;
+use Vees\Core\Provider\Domain\Aggregates\Provider\ProviderFactory;
 
-use App\Provider\Infrastructure\Persistence\Eloquent\Assemblers\ProviderPersistenceAssembler;
-use App\Provider\Infrastructure\Persistence\Eloquent\Mappers\ProviderMapper;
-use App\Provider\Infrastructure\Persistence\Eloquent\Repositories\EloquentProviderRepository;
+use Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Assemblers\ProviderPersistenceAssembler;
+use Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Mappers\ProviderMapper;
+use Vees\Core\Provider\Infrastructure\Persistence\Eloquent\Repositories\EloquentProviderRepository;
 
 final readonly class ProviderRegistrar
 {

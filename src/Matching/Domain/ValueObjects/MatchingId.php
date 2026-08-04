@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Domain\ValueObjects;
+namespace Vees\Core\Matching\Domain\ValueObjects;
 
-use App\SharedKernel\Domain\ValueObject;
+use Vees\Core\SharedKernel\Domain\ValueObject;
 
 final readonly class MatchingId extends ValueObject
 {
@@ -16,13 +16,17 @@ final readonly class MatchingId extends ValueObject
     public static function fromString(
         string $value,
     ): self {
-
         return new self($value);
     }
 
     public function value(): string
     {
         return $this->value;
+    }
+
+    public function toArray(): array
+    {
+        return ['value' => $this->value];
     }
 
     public function __toString(): string

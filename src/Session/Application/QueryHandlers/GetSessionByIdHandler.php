@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Application\QueryHandlers;
+namespace Vees\Core\Session\Application\QueryHandlers;
 
-use App\Framework\Application\Handlers\QueryHandler;
-use App\Session\Application\Queries\GetSessionByIdQuery;
-use App\Session\Domain\Contracts\SessionRepository;
-use App\Session\Domain\ValueObjects\SessionId;
+use Vees\Core\Framework\Application\Handlers\QueryHandler;
+use Vees\Core\Session\Application\Queries\GetSessionByIdQuery;
+use Vees\Core\Session\Domain\Contracts\SessionRepository;
+use Vees\Core\Session\Domain\ValueObjects\SessionId;
 
 final readonly class GetSessionByIdHandler implements QueryHandler
 {

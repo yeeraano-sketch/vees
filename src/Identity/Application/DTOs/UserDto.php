@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Application\DTOs;
+namespace Vees\Core\Identity\Application\DTOs;
 
-use App\Identity\Domain\Aggregates\User;
+use Vees\Core\Identity\Domain\Aggregates\User;
 
 final readonly class UserDto
 {

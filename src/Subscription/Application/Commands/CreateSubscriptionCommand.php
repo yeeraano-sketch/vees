@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Application\Commands;
+namespace Vees\Core\Subscription\Application\Commands;
 
-use App\Framework\Application\Commands\Command;
+use Vees\Core\Framework\Application\Commands\Command;
 
 final readonly class CreateSubscriptionCommand implements Command
 {

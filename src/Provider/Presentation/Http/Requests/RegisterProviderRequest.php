@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Presentation\Http\Requests;
+namespace Vees\Core\Provider\Presentation\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

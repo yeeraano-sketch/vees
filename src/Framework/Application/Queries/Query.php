@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Application\Queries;
+namespace Vees\Core\Framework\Application\Queries;
 
 interface Query
 {

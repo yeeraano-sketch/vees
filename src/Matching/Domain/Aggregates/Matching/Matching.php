@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Domain\Aggregates\Matching;
+namespace Vees\Core\Matching\Domain\Aggregates\Matching;
 
-use App\Matching\Domain\Enums\MatchingStatus;
-use App\Matching\Domain\Events\MatchingCreated;
-use App\Matching\Domain\Events\ProviderMatched;
-use App\Matching\Domain\Exceptions\NoEligibleProviderFound;
-use App\Matching\Domain\ValueObjects\MatchingId;
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\Matching\Domain\Enums\MatchingStatus;
+use Vees\Core\Matching\Domain\Events\MatchingCreated;
+use Vees\Core\Matching\Domain\Events\ProviderMatched;
+use Vees\Core\Matching\Domain\Exceptions\NoEligibleProviderFound;
+use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final class Matching extends AggregateRoot
 {
@@ -34,7 +34,7 @@ final class Matching extends AggregateRoot
         );
 
         $matching->recordEvent(
-            new MatchingCreated($id)
+            new MatchingCreated($id->value())
         );
 
         return $matching;
@@ -49,12 +49,16 @@ final class Matching extends AggregateRoot
         }
 
         $this->providerId = $providerId;
-
         $this->status = MatchingStatus::Matched;
 
         $this->recordEvent(
-            new ProviderMatched($this->id)
+            new ProviderMatched($this->id->value())
         );
+    }
+
+    protected function identity(): mixed
+    {
+        return $this->id;
     }
 
     public function id(): MatchingId
@@ -80,13 +84,9 @@ final class Matching extends AggregateRoot
     public function snapshot(): array
     {
         return [
-
             'id' => (string) $this->id,
-
             'session_id' => $this->sessionId,
-
             'provider_id' => $this->providerId,
-
             'status' => $this->status->value,
         ];
     }

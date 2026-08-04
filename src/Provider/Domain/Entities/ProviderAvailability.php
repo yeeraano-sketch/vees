@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\Entities;
+namespace Vees\Core\Provider\Domain\Entities;
 
-use App\Provider\Domain\Enums\AvailabilityStatus;
-use App\SharedKernel\Domain\Entity;
+use Vees\Core\Provider\Domain\Enums\AvailabilityStatus;
+use Vees\Core\SharedKernel\Domain\Entity;
 
 final class ProviderAvailability extends Entity
 {

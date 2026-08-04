@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Infrastructure\Persistence\Eloquent\Mappers;
+namespace Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Mappers;
 
-use App\Subscription\Domain\Aggregates\Subscription\Subscription;
-use App\Subscription\Infrastructure\Persistence\Eloquent\Models\SubscriptionModel;
+use Vees\Core\Subscription\Domain\Aggregates\Subscription\Subscription;
+use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Models\SubscriptionModel;
 
 final class SubscriptionMapper
 {

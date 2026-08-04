@@ -1,29 +1,13 @@
 <?php
-
 declare(strict_types=1);
-
-namespace App\Notification\Domain\Events;
-
-use App\Notification\Domain\ValueObjects\NotificationId;
-use App\SharedKernel\Domain\Events\AbstractDomainEvent;
-
+namespace Vees\Core\Notification\Domain\Events;
+use Vees\Core\SharedKernel\Domain\Events\AbstractDomainEvent;
 final class NotificationCreated extends AbstractDomainEvent
 {
-    public function __construct(
-        private readonly NotificationId $notificationId,
-    ) {
-        parent::__construct();
+    public function __construct(string $notificationId, ?string $correlationId = null, ?string $causationId = null) {
+        parent::__construct($notificationId, $correlationId, $causationId);
     }
-
-    public function aggregateId(): string
-    {
-        return (string) $this->notificationId;
-    }
-
-    public function payload(): array
-    {
-        return [
-            'notificationId' => (string) $this->notificationId,
-        ];
-    }
+    public function entityType(): string { return 'Notification'; }
+    public function producer(): string { return 'NotificationEngine'; }
+    public function payload(): array { return ['notificationId' => $this->entityId()]; }
 }

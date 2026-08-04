@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\EventBus;
+namespace Vees\Core\SharedKernel\Application\EventBus;
 
-use App\SharedKernel\Application\Events\DomainEvent;
-use App\SharedKernel\Application\Subscribers\SubscriberRegistry;
+use Vees\Core\SharedKernel\Domain\DomainEvent;
+use Vees\Core\SharedKernel\Application\Subscribers\SubscriberRegistry;
 
 final readonly class SynchronousEventBus implements EventBus
 {

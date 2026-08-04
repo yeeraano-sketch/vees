@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Infrastructure\Providers;
+namespace Vees\Core\Notification\Infrastructure\Providers;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Notification\Domain\Contracts\NotificationRepository;
-use App\Notification\Domain\Aggregates\Notification\NotificationFactory;
+use Vees\Core\Notification\Domain\Contracts\NotificationRepository;
+use Vees\Core\Notification\Domain\Aggregates\Notification\NotificationFactory;
 
-use App\Notification\Infrastructure\Persistence\Eloquent\Assemblers\NotificationPersistenceAssembler;
-use App\Notification\Infrastructure\Persistence\Eloquent\Mappers\NotificationMapper;
-use App\Notification\Infrastructure\Persistence\Eloquent\Repositories\EloquentNotificationRepository;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Assemblers\NotificationPersistenceAssembler;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Mappers\NotificationMapper;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Repositories\EloquentNotificationRepository;
 
 final readonly class NotificationRegistrar
 {

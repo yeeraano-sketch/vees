@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Domain\Enums;
+namespace Vees\Core\Session\Domain\Enums;
 
 enum SessionStatus: string
 {

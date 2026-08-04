@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Middlewares;
+namespace Vees\Core\SharedKernel\Application\Middlewares;
 
-use App\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Contracts\Middleware;
+use Vees\Core\SharedKernel\Application\Contracts\Validatable;
+use Vees\Core\SharedKernel\Domain\Exceptions\DomainException;
 
 final class ValidationMiddleware implements Middleware
 {
@@ -12,6 +14,14 @@ final class ValidationMiddleware implements Middleware
         mixed $message,
         callable $next,
     ): mixed {
+        if ($message instanceof Validatable) {
+            $errors = $message->validate();
+            if (!empty($errors)) {
+                throw new DomainException(
+                    'Validation failed: ' . json_encode($errors)
+                );
+            }
+        }
 
         return $next($message);
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Domain\Exceptions;
+namespace Vees\Core\Notification\Domain\Exceptions;
 
 use DomainException;
 

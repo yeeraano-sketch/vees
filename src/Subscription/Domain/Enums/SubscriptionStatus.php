@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\Enums;
+namespace Vees\Core\Subscription\Domain\Enums;
 
 enum SubscriptionStatus: string
 {

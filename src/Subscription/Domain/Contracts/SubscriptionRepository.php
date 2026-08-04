@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\Contracts;
+namespace Vees\Core\Subscription\Domain\Contracts;
 
-use App\Subscription\Domain\Aggregates\Subscription\Subscription;
-use App\Subscription\Domain\ValueObjects\SubscriptionId;
+use Vees\Core\Subscription\Domain\Aggregates\Subscription\Subscription;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionId;
 
 interface SubscriptionRepository
 {

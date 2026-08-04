@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Presentation\Http\Controllers;
+namespace Vees\Core\Provider\Presentation\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 
-use App\Provider\Application\Commands\RegisterProviderCommand;
-use App\Provider\Application\Services\RegisterProviderService;
+use Vees\Core\Provider\Application\Commands\RegisterProviderCommand;
+use Vees\Core\Provider\Application\Services\RegisterProviderService;
 
-use App\Provider\Presentation\Http\Requests\RegisterProviderRequest;
-use App\Provider\Presentation\Http\Responses\RegisterProviderResponse;
+use Vees\Core\Provider\Presentation\Http\Requests\RegisterProviderRequest;
+use Vees\Core\Provider\Presentation\Http\Responses\RegisterProviderResponse;
 
 final class RegisterProviderController extends Controller
 {

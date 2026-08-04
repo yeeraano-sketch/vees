@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Infrastructure\Persistence;
+namespace Vees\Core\Identity\Infrastructure\Persistence;
 
-use App\Identity\Domain\Aggregates\User;
-use App\Identity\Domain\Repositories\UserRepository;
-use App\Identity\Domain\ValueObjects\Email;
-use App\Identity\Domain\ValueObjects\UserId;
+use Vees\Core\Identity\Domain\Aggregates\User;
+use Vees\Core\Identity\Domain\Repositories\UserRepository;
+use Vees\Core\Identity\Domain\ValueObjects\Email;
+use Vees\Core\Identity\Domain\ValueObjects\UserId;
 
 final readonly class EloquentUserRepository implements UserRepository
 {

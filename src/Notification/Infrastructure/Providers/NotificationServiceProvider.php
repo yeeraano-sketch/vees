@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Infrastructure\Providers;
+namespace Vees\Core\Notification\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

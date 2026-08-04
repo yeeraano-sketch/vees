@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Infrastructure\Persistence\Eloquent\Assemblers;
+namespace Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Assemblers;
 
-use App\Notification\Domain\Aggregates\Notification\Notification;
-use App\Notification\Infrastructure\Persistence\Eloquent\Mappers\NotificationMapper;
-use App\Notification\Infrastructure\Persistence\Eloquent\Models\NotificationModel;
+use Vees\Core\Notification\Domain\Aggregates\Notification\Notification;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Mappers\NotificationMapper;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Models\NotificationModel;
 
 final readonly class NotificationPersistenceAssembler
 {

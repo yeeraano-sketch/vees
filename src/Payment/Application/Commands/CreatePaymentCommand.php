@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Application\Commands;
+namespace Vees\Core\Payment\Application\Commands;
 
-use App\Framework\Application\Commands\Command;
+use Vees\Core\Framework\Application\Commands\Command;
 
 final readonly class CreatePaymentCommand implements Command
 {

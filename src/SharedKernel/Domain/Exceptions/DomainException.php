@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Domain\Exceptions;
+namespace Vees\Core\SharedKernel\Domain\Exceptions;
 
 use Exception;
 

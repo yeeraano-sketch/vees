@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Infrastructure\Persistence\Eloquent\Mappers;
+namespace Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Mappers;
 
-use App\Payment\Domain\Aggregates\Payment\Payment;
-use App\Payment\Infrastructure\Persistence\Eloquent\Models\PaymentModel;
+use Vees\Core\Payment\Domain\Aggregates\Payment\Payment;
+use Vees\Core\Payment\Infrastructure\Persistence\Eloquent\Models\PaymentModel;
 
 final class PaymentMapper
 {

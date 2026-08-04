@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Application\Handlers;
+namespace Vees\Core\Payment\Application\Handlers;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\Payment\Application\Commands\CreatePaymentCommand;
-use App\Payment\Domain\Aggregates\Payment\PaymentFactory;
-use App\Payment\Domain\Contracts\PaymentRepository;
-use App\Payment\Domain\Enums\PaymentMethod;
-use App\Payment\Domain\ValueObjects\Money;
-use App\Payment\Domain\ValueObjects\PaymentId;
-use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Contracts\CommandHandler;
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\Payment\Application\Commands\CreatePaymentCommand;
+use Vees\Core\Payment\Domain\Aggregates\Payment\PaymentFactory;
+use Vees\Core\Payment\Domain\Contracts\PaymentRepository;
+use Vees\Core\Payment\Domain\Enums\PaymentMethod;
+use Vees\Core\Payment\Domain\ValueObjects\Money;
+use Vees\Core\Payment\Domain\ValueObjects\PaymentId;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
 final readonly class CreatePaymentHandler implements CommandHandler
 {

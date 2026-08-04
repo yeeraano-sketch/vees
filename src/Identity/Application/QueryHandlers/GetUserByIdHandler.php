@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Application\QueryHandlers;
+namespace Vees\Core\Identity\Application\QueryHandlers;
 
-use App\Identity\Application\Queries\GetUserByIdQuery;
-use App\Identity\Domain\Repositories\UserRepository;
-use App\Identity\Domain\ValueObjects\UserId;
-use App\Identity\Application\DTOs\UserDto;
+use Vees\Core\Identity\Application\Queries\GetUserByIdQuery;
+use Vees\Core\Identity\Domain\Repositories\UserRepository;
+use Vees\Core\Identity\Domain\ValueObjects\UserId;
+use Vees\Core\Identity\Application\DTOs\UserDto;
 
 final readonly class GetUserByIdHandler
 {

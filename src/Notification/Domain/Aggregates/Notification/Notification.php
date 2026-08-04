@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Domain\Aggregates\Notification;
+namespace Vees\Core\Notification\Domain\Aggregates\Notification;
 
-use App\Notification\Domain\Enums\NotificationStatus;
-use App\Notification\Domain\Events\NotificationCreated;
-use App\Notification\Domain\Exceptions\NotificationCannotBeSent;
-use App\Notification\Domain\ValueObjects\NotificationId;
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\Notification\Domain\Enums\NotificationStatus;
+use Vees\Core\Notification\Domain\Events\NotificationCreated;
+use Vees\Core\Notification\Domain\Exceptions\NotificationCannotBeSent;
+use Vees\Core\Notification\Domain\ValueObjects\NotificationId;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final class Notification extends AggregateRoot
 {

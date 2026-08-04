@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Contracts;
+namespace Vees\Core\SharedKernel\Contracts;
 
 use DateTimeImmutable;
 

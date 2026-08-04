@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Application\Commands;
+namespace Vees\Core\Matching\Application\Commands;
 
-use App\Framework\Application\Commands\Command;
+use Vees\Core\Framework\Application\Commands\Command;
 
 final readonly class CreateMatchingCommand implements Command
 {

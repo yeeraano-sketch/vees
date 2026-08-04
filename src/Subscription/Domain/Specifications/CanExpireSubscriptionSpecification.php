@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\Specifications;
+namespace Vees\Core\Subscription\Domain\Specifications;
 
-use App\Subscription\Domain\Enums\SubscriptionStatus;
+use Vees\Core\Subscription\Domain\Enums\SubscriptionStatus;
 
 final readonly class CanExpireSubscriptionSpecification
 {

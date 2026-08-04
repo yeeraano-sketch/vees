@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Dispatcher;
+namespace Vees\Core\SharedKernel\Application\Dispatcher;
 
-use App\SharedKernel\Application\EventBus\EventBus;
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\SharedKernel\Application\EventBus\EventBus;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final readonly class EventDispatcher
 {

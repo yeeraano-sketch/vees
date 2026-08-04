@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Application\Commands;
+namespace Vees\Core\Provider\Application\Commands;
 
-use App\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
 
 final readonly class ChangeWorkModeCommand implements Command
 {

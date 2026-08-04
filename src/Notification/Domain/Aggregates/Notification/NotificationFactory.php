@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Domain\Aggregates\Notification;
+namespace Vees\Core\Notification\Domain\Aggregates\Notification;
 
-use App\Notification\Domain\ValueObjects\NotificationId;
+use Vees\Core\Notification\Domain\ValueObjects\NotificationId;
 
 final readonly class NotificationFactory
 {

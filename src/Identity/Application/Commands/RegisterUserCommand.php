@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Application\Commands;
+namespace Vees\Core\Identity\Application\Commands;
 
-use App\Identity\Domain\ValueObjects\UserRole;
+use Vees\Core\Identity\Domain\ValueObjects\UserRole;
 
 final readonly class RegisterUserCommand
 {

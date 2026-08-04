@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Domain\Enums;
+namespace Vees\Core\Notification\Domain\Enums;
 
 enum NotificationStatus: string
 {

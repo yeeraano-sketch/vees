@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Domain\Enums;
+namespace Vees\Core\Matching\Domain\Enums;
 
 enum MatchingStatus: string
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Application\QueryHandlers;
+namespace Vees\Core\Provider\Application\QueryHandlers;
 
-use App\Framework\Application\Handlers\QueryHandler;
-use App\Provider\Application\DTOs\ProviderDto;
-use App\Provider\Application\Queries\GetProviderByIdQuery;
-use App\Provider\Domain\Contracts\ProviderRepository;
-use App\Provider\Domain\ValueObjects\ProviderId;
+use Vees\Core\Framework\Application\Handlers\QueryHandler;
+use Vees\Core\Provider\Application\DTOs\ProviderDto;
+use Vees\Core\Provider\Application\Queries\GetProviderByIdQuery;
+use Vees\Core\Provider\Domain\Contracts\ProviderRepository;
+use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
 
 final readonly class GetProviderByIdHandler implements QueryHandler
 {

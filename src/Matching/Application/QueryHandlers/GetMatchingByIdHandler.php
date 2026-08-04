@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Application\QueryHandlers;
+namespace Vees\Core\Matching\Application\QueryHandlers;
 
-use App\Framework\Application\Handlers\QueryHandler;
-use App\Matching\Application\Queries\GetMatchingByIdQuery;
-use App\Matching\Domain\Contracts\MatchingRepository;
-use App\Matching\Domain\ValueObjects\MatchingId;
+use Vees\Core\Framework\Application\Handlers\QueryHandler;
+use Vees\Core\Matching\Application\Queries\GetMatchingByIdQuery;
+use Vees\Core\Matching\Domain\Contracts\MatchingRepository;
+use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
 
 final readonly class GetMatchingByIdHandler implements QueryHandler
 {

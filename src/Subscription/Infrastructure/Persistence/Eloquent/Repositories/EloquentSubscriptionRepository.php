@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Infrastructure\Persistence\Eloquent\Repositories;
+namespace Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Repositories;
 
-use App\Subscription\Domain\Aggregates\Subscription\Subscription;
-use App\Subscription\Domain\Contracts\SubscriptionRepository;
-use App\Subscription\Domain\ValueObjects\SubscriptionId;
-use App\Subscription\Infrastructure\Persistence\Eloquent\Assemblers\SubscriptionPersistenceAssembler;
-use App\Subscription\Infrastructure\Persistence\Eloquent\Models\SubscriptionModel;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\Subscription\Domain\Aggregates\Subscription\Subscription;
+use Vees\Core\Subscription\Domain\Contracts\SubscriptionRepository;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionId;
+use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Assemblers\SubscriptionPersistenceAssembler;
+use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Models\SubscriptionModel;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class EloquentSubscriptionRepository implements SubscriptionRepository
 {

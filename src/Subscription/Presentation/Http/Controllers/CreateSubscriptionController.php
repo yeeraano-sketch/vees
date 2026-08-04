@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Presentation\Http\Controllers;
+namespace Vees\Core\Subscription\Presentation\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 
-use App\Subscription\Application\Commands\CreateSubscriptionCommand;
-use App\Subscription\Application\Services\CreateSubscriptionService;
+use Vees\Core\Subscription\Application\Commands\CreateSubscriptionCommand;
+use Vees\Core\Subscription\Application\Services\CreateSubscriptionService;
 
-use App\Subscription\Presentation\Http\Requests\CreateSubscriptionRequest;
-use App\Subscription\Presentation\Http\Responses\CreateSubscriptionResponse;
+use Vees\Core\Subscription\Presentation\Http\Requests\CreateSubscriptionRequest;
+use Vees\Core\Subscription\Presentation\Http\Responses\CreateSubscriptionResponse;
 
 final class CreateSubscriptionController extends Controller
 {

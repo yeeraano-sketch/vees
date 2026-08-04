@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\Policies;
+namespace Vees\Core\Subscription\Domain\Policies;
 
-use App\Subscription\Domain\Enums\SubscriptionPlan;
+use Vees\Core\Subscription\Domain\Enums\SubscriptionPlan;
 
 final readonly class PaidSubscriptionPolicy
 {

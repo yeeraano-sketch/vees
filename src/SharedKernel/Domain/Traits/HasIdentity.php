@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Domain\Traits;
+namespace Vees\Core\SharedKernel\Domain\Traits;
 
 trait HasIdentity
 {

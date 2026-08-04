@@ -1,29 +1,13 @@
 <?php
-
 declare(strict_types=1);
-
-namespace App\Session\Domain\Events;
-
-use App\Session\Domain\ValueObjects\SessionId;
-use App\SharedKernel\Domain\Events\AbstractDomainEvent;
-
+namespace Vees\Core\Session\Domain\Events;
+use Vees\Core\SharedKernel\Domain\Events\AbstractDomainEvent;
 final class SessionCompleted extends AbstractDomainEvent
 {
-    public function __construct(
-        private readonly SessionId $sessionId,
-    ) {
-        parent::__construct();
+    public function __construct(string $sessionId, ?string $correlationId = null, ?string $causationId = null) {
+        parent::__construct($sessionId, $correlationId, $causationId);
     }
-
-    public function aggregateId(): string
-    {
-        return (string) $this->sessionId;
-    }
-
-    public function payload(): array
-    {
-        return [
-            'sessionId' => (string) $this->sessionId,
-        ];
-    }
+    public function entityType(): string { return 'Session'; }
+    public function producer(): string { return 'SessionEngine'; }
+    public function payload(): array { return ['sessionId' => $this->entityId()]; }
 }

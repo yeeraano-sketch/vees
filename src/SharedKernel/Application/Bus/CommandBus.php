@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Bus;
+namespace Vees\Core\SharedKernel\Application\Bus;
 
-use App\SharedKernel\Application\Contracts\Command;
-use App\Framework\Dispatcher\HandlerResolver;
-use App\SharedKernel\Application\Pipeline\Pipeline;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\Framework\Dispatcher\HandlerResolver;
+use Vees\Core\SharedKernel\Application\Pipeline\Pipeline;
 
 final readonly class CommandBus
 {

@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Modules;
+namespace Vees\Core\Framework\Modules;
 
 use Illuminate\Contracts\Foundation\Application;
 
-use App\Framework\Persistence\LaravelUnitOfWork;
+use Vees\Core\Framework\Persistence\LaravelUnitOfWork;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\SharedKernel\Application\Bus\TransactionalCommandBus;
-use App\SharedKernel\Application\Dispatcher\EventDispatcher;
-use App\SharedKernel\Application\EventBus\EventBus;
-use App\SharedKernel\Application\EventBus\SynchronousEventBus;
-use App\SharedKernel\Application\Subscribers\SubscriberRegistry;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\SharedKernel\Application\Bus\TransactionalCommandBus;
+use Vees\Core\SharedKernel\Application\Dispatcher\EventDispatcher;
+use Vees\Core\SharedKernel\Application\EventBus\EventBus;
+use Vees\Core\SharedKernel\Application\EventBus\SynchronousEventBus;
+use Vees\Core\SharedKernel\Application\Subscribers\SubscriberRegistry;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
-use App\SharedKernel\Contracts\Clock;
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Contracts\Clock;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
-use App\SharedKernel\Infrastructure\Clock\SystemClock;
-use App\SharedKernel\Infrastructure\Uuid\RamseyUuidGenerator;
+use Vees\Core\SharedKernel\Infrastructure\Clock\SystemClock;
+use Vees\Core\SharedKernel\Infrastructure\Uuid\RamseyUuidGenerator;
 
 final readonly class ModulesRegistry
 {

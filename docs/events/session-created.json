@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SessionCreated",
+  "type": "object",
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "eventType": {
+      "const": "SessionCreated"
+    },
+    "entityType": {
+      "const": "Session"
+    },
+    "entityId": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "correlationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "causationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "sessionId": { "type": "string" },
+        "customerId": { "type": "string" },
+        "serviceType": { "type": "integer" },
+        "cityId": { "type": "string" }
+      },
+      "required": ["sessionId", "customerId", "serviceType", "cityId"]
+    }
+  },
+  "required": ["eventId", "eventType", "entityType", "entityId", "version", "occurredAt", "producer", "payload"]
+}

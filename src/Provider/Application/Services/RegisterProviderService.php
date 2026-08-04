@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Application\Services;
+namespace Vees\Core\Provider\Application\Services;
 
-use App\Provider\Application\Commands\RegisterProviderCommand;
-use App\Provider\Domain\Aggregates\Provider\Provider;
-use App\Provider\Domain\Contracts\ProviderRepository;
-use App\Provider\Domain\Aggregates\Provider\ProviderFactory;
-use App\Provider\Domain\ValueObjects\ProviderId;
-use App\Provider\Domain\ValueObjects\FullName;
-use App\Provider\Domain\ValueObjects\PhoneNumber;
-use App\Provider\Domain\ValueObjects\City;
-use App\Provider\Domain\ValueObjects\WorkMode;
-use App\Provider\Domain\ValueObjects\ProviderStatus;
-use App\Provider\Domain\Entities\ProviderProfile;
-use App\Provider\Domain\Entities\ProviderAvailability;
-use App\Provider\Domain\Entities\ProviderVerification;
-use App\Provider\Domain\Entities\ProviderSettings;
+use Vees\Core\Provider\Application\Commands\RegisterProviderCommand;
+use Vees\Core\Provider\Domain\Aggregates\Provider\Provider;
+use Vees\Core\Provider\Domain\Contracts\ProviderRepository;
+use Vees\Core\Provider\Domain\Aggregates\Provider\ProviderFactory;
+use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
+use Vees\Core\Provider\Domain\ValueObjects\FullName;
+use Vees\Core\Provider\Domain\ValueObjects\PhoneNumber;
+use Vees\Core\Provider\Domain\ValueObjects\City;
+use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
+use Vees\Core\Provider\Domain\ValueObjects\ProviderStatus;
+use Vees\Core\Provider\Domain\Entities\ProviderProfile;
+use Vees\Core\Provider\Domain\Entities\ProviderAvailability;
+use Vees\Core\Provider\Domain\Entities\ProviderVerification;
+use Vees\Core\Provider\Domain\Entities\ProviderSettings;
 
 final readonly class RegisterProviderService
 {

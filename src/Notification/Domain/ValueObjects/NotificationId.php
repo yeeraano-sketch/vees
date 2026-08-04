@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Domain\ValueObjects;
+namespace Vees\Core\Notification\Domain\ValueObjects;
 
-use App\SharedKernel\Domain\ValueObject;
+use Vees\Core\SharedKernel\Domain\ValueObject;
 
 final readonly class NotificationId extends ValueObject
 {

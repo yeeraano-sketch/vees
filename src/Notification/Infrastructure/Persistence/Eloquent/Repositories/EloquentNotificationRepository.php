@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Infrastructure\Persistence\Eloquent\Repositories;
+namespace Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Repositories;
 
-use App\Notification\Domain\Aggregates\Notification\Notification;
-use App\Notification\Domain\Contracts\NotificationRepository;
-use App\Notification\Domain\ValueObjects\NotificationId;
-use App\Notification\Infrastructure\Persistence\Eloquent\Assemblers\NotificationPersistenceAssembler;
-use App\Notification\Infrastructure\Persistence\Eloquent\Models\NotificationModel;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\Notification\Domain\Aggregates\Notification\Notification;
+use Vees\Core\Notification\Domain\Contracts\NotificationRepository;
+use Vees\Core\Notification\Domain\ValueObjects\NotificationId;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Assemblers\NotificationPersistenceAssembler;
+use Vees\Core\Notification\Infrastructure\Persistence\Eloquent\Models\NotificationModel;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class EloquentNotificationRepository implements NotificationRepository
 {

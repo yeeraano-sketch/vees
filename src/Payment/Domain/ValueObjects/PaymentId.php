@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Domain\ValueObjects;
+namespace Vees\Core\Payment\Domain\ValueObjects;
 
-use App\SharedKernel\Domain\ValueObject;
+use Vees\Core\SharedKernel\Domain\ValueObject;
 
 final readonly class PaymentId extends ValueObject
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Application\Handlers;
+namespace Vees\Core\Matching\Application\Handlers;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\Matching\Application\Commands\CreateMatchingCommand;
-use App\Matching\Domain\Aggregates\Matching\MatchingFactory;
-use App\Matching\Domain\Contracts\MatchingRepository;
-use App\Matching\Domain\ValueObjects\MatchingId;
-use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Contracts\CommandHandler;
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\Matching\Application\Commands\CreateMatchingCommand;
+use Vees\Core\Matching\Domain\Aggregates\Matching\MatchingFactory;
+use Vees\Core\Matching\Domain\Contracts\MatchingRepository;
+use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
 final readonly class CreateMatchingHandler implements CommandHandler
 {

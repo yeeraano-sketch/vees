@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Domain\Contracts;
+namespace Vees\Core\Matching\Domain\Contracts;
 
-use App\Matching\Domain\Aggregates\Matching\Matching;
-use App\Matching\Domain\ValueObjects\MatchingId;
+use Vees\Core\Matching\Domain\Aggregates\Matching\Matching;
+use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
 
 interface MatchingRepository
 {

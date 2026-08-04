@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Provider\Domain\Entities;
+namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
-use App\Provider\Domain\Entities\ProviderAvailability;
-use App\Provider\Domain\Enums\AvailabilityStatus;
+use Vees\Core\Provider\Domain\Entities\ProviderAvailability;
+use Vees\Core\Provider\Domain\Enums\AvailabilityStatus;
 use PHPUnit\Framework\TestCase;
 
 class ProviderAvailabilityTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\ValueObjects;
+namespace Vees\Core\Provider\Domain\ValueObjects;
 
-use App\SharedKernel\Domain\ValueObject;
+use Vees\Core\SharedKernel\Domain\ValueObject;
 
 final readonly class ProviderId extends ValueObject
 {

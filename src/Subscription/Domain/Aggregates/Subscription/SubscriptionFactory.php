@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\Aggregates\Subscription;
+namespace Vees\Core\Subscription\Domain\Aggregates\Subscription;
 
-use App\Subscription\Domain\Enums\SubscriptionPlan;
-use App\Subscription\Domain\ValueObjects\SubscriptionId;
-use App\Subscription\Domain\ValueObjects\SubscriptionPeriod;
+use Vees\Core\Subscription\Domain\Enums\SubscriptionPlan;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionId;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionPeriod;
 
 final readonly class SubscriptionFactory
 {

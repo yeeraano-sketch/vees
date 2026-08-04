@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Application\DTOs;
+namespace Vees\Core\Notification\Application\DTOs;
 
 final readonly class NotificationDto
 {

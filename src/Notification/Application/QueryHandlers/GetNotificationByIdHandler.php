@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Application\QueryHandlers;
+namespace Vees\Core\Notification\Application\QueryHandlers;
 
-use App\Framework\Application\Handlers\QueryHandler;
-use App\Notification\Application\Queries\GetNotificationByIdQuery;
-use App\Notification\Domain\Contracts\NotificationRepository;
-use App\Notification\Domain\ValueObjects\NotificationId;
+use Vees\Core\Framework\Application\Handlers\QueryHandler;
+use Vees\Core\Notification\Application\Queries\GetNotificationByIdQuery;
+use Vees\Core\Notification\Domain\Contracts\NotificationRepository;
+use Vees\Core\Notification\Domain\ValueObjects\NotificationId;
 
 final readonly class GetNotificationByIdHandler implements QueryHandler
 {

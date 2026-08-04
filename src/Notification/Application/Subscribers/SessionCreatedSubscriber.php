@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Application\Subscribers;
+namespace Vees\Core\Notification\Application\Subscribers;
 
-use App\Notification\Application\Commands\CreateNotificationCommand;
-use App\Notification\Application\Services\CreateNotificationService;
-use App\Session\Domain\Events\SessionCreated;
-use App\SharedKernel\Application\Events\DomainEvent;
-use App\SharedKernel\Application\Subscribers\EventSubscriber;
+use Vees\Core\Notification\Application\Commands\CreateNotificationCommand;
+use Vees\Core\Notification\Application\Services\CreateNotificationService;
+use Vees\Core\Session\Domain\Events\SessionCreated;
+use Vees\Core\SharedKernel\Domain\DomainEvent;
+use Vees\Core\SharedKernel\Application\Subscribers\EventSubscriber;
 
 final readonly class SessionCreatedSubscriber implements EventSubscriber
 {

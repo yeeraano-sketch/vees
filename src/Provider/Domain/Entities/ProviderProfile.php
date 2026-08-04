@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\Entities;
+namespace Vees\Core\Provider\Domain\Entities;
 
-use App\Provider\Domain\ValueObjects\City;
-use App\Provider\Domain\ValueObjects\FullName;
-use App\Provider\Domain\ValueObjects\PhoneNumber;
-use App\SharedKernel\Domain\Entity;
+use Vees\Core\Provider\Domain\ValueObjects\City;
+use Vees\Core\Provider\Domain\ValueObjects\FullName;
+use Vees\Core\Provider\Domain\ValueObjects\PhoneNumber;
+use Vees\Core\SharedKernel\Domain\Entity;
 
 final class ProviderProfile extends Entity
 {

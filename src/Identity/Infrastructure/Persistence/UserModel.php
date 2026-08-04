@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Infrastructure\Persistence;
+namespace Vees\Core\Identity\Infrastructure\Persistence;
 
 use Illuminate\Database\Eloquent\Model;
 

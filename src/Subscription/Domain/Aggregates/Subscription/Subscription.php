@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Domain\Aggregates\Subscription;
+namespace Vees\Core\Subscription\Domain\Aggregates\Subscription;
 
-use App\SharedKernel\Domain\AggregateRoot;
-use App\Subscription\Domain\Enums\SubscriptionPlan;
-use App\Subscription\Domain\Enums\SubscriptionStatus;
-use App\Subscription\Domain\Events\SubscriptionActivated;
-use App\Subscription\Domain\Events\SubscriptionCreated;
-use App\Subscription\Domain\Events\SubscriptionExpired;
-use App\Subscription\Domain\ValueObjects\SubscriptionId;
-use App\Subscription\Domain\ValueObjects\SubscriptionPeriod;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\Subscription\Domain\Enums\SubscriptionPlan;
+use Vees\Core\Subscription\Domain\Enums\SubscriptionStatus;
+use Vees\Core\Subscription\Domain\Events\SubscriptionActivated;
+use Vees\Core\Subscription\Domain\Events\SubscriptionCreated;
+use Vees\Core\Subscription\Domain\Events\SubscriptionExpired;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionId;
+use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionPeriod;
 
 final class Subscription extends AggregateRoot
 {

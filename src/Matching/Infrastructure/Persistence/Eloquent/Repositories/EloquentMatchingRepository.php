@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Infrastructure\Persistence\Eloquent\Repositories;
+namespace Vees\Core\Matching\Infrastructure\Persistence\Eloquent\Repositories;
 
-use App\Matching\Domain\Aggregates\Matching\Matching;
-use App\Matching\Domain\Contracts\MatchingRepository;
-use App\Matching\Domain\ValueObjects\MatchingId;
-use App\Matching\Infrastructure\Persistence\Eloquent\Assemblers\MatchingPersistenceAssembler;
-use App\Matching\Infrastructure\Persistence\Eloquent\Models\MatchingModel;
-use App\SharedKernel\Application\Transactions\AggregateCollector;
+use Vees\Core\Matching\Domain\Aggregates\Matching\Matching;
+use Vees\Core\Matching\Domain\Contracts\MatchingRepository;
+use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
+use Vees\Core\Matching\Infrastructure\Persistence\Eloquent\Assemblers\MatchingPersistenceAssembler;
+use Vees\Core\Matching\Infrastructure\Persistence\Eloquent\Models\MatchingModel;
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class EloquentMatchingRepository implements MatchingRepository
 {

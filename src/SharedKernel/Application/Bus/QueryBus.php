@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Bus;
+namespace Vees\Core\SharedKernel\Application\Bus;
 
-use App\SharedKernel\Application\Contracts\Query;
+use Vees\Core\SharedKernel\Application\Contracts\Query;
 
 interface QueryBus
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Domain\Contracts;
+namespace Vees\Core\Payment\Domain\Contracts;
 
-use App\Payment\Domain\Aggregates\Payment\Payment;
-use App\Payment\Domain\ValueObjects\PaymentId;
+use Vees\Core\Payment\Domain\Aggregates\Payment\Payment;
+use Vees\Core\Payment\Domain\ValueObjects\PaymentId;
 
 interface PaymentRepository
 {

@@ -1,0 +1,77 @@
+openapi: "3.0.3"
+info:
+  title: Session API
+  version: "1.0.0"
+paths:
+  /sessions:
+    post:
+      summary: Create a new session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '201':
+          description: Session created
+  /sessions/{sessionId}/accept:
+    post:
+      summary: Accept a session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Session accepted
+  /sessions/{sessionId}/complete:
+    post:
+      summary: Complete a session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Session completed
+  /sessions/{sessionId}/cancel:
+    post:
+      summary: Cancel a session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Session cancelled
+components:
+  schemas:
+    CreateSessionRequest:
+      type: object
+      required: [providerId, customerId, matchingId, subscriptionId]
+      properties:
+        id:
+          type: string
+          format: uuid
+        providerId:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+        matchingId:
+          type: string
+          format: uuid
+        subscriptionId:
+          type: string
+          format: uuid

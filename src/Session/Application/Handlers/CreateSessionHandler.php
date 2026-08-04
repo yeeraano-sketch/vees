@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Application\Handlers;
+namespace Vees\Core\Session\Application\Handlers;
 
-use App\SharedKernel\Application\Contracts\UnitOfWork;
-use App\Session\Application\Commands\CreateSessionCommand;
-use App\Session\Domain\Aggregates\Session\SessionFactory;
-use App\Session\Domain\Contracts\SessionRepository;
-use App\Session\Domain\ValueObjects\SessionId;
-use App\SharedKernel\Application\Contracts\Command;
-use App\SharedKernel\Application\Contracts\CommandHandler;
-use App\SharedKernel\Contracts\UuidGenerator;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
+use Vees\Core\Session\Application\Commands\CreateSessionCommand;
+use Vees\Core\Session\Domain\Aggregates\Session\SessionFactory;
+use Vees\Core\Session\Domain\Contracts\SessionRepository;
+use Vees\Core\Session\Domain\ValueObjects\SessionId;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
+use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
 final readonly class CreateSessionHandler implements CommandHandler
 {

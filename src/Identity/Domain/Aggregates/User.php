@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Identity\Domain\Aggregates;
+namespace Vees\Core\Identity\Domain\Aggregates;
 
-use App\Identity\Domain\Events\UserActivated;
-use App\Identity\Domain\Events\UserDeactivated;
-use App\Identity\Domain\Events\UserRegistered;
-use App\Identity\Domain\ValueObjects\Email;
-use App\Identity\Domain\ValueObjects\PasswordHash;
-use App\Identity\Domain\ValueObjects\UserId;
-use App\Identity\Domain\ValueObjects\UserRole;
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\Identity\Domain\Events\UserActivated;
+use Vees\Core\Identity\Domain\Events\UserDeactivated;
+use Vees\Core\Identity\Domain\Events\UserRegistered;
+use Vees\Core\Identity\Domain\ValueObjects\Email;
+use Vees\Core\Identity\Domain\ValueObjects\PasswordHash;
+use Vees\Core\Identity\Domain\ValueObjects\UserId;
+use Vees\Core\Identity\Domain\ValueObjects\UserRole;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final class User extends AggregateRoot
 {

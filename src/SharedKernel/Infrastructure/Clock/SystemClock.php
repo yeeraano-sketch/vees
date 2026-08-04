@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Infrastructure\Clock;
+namespace Vees\Core\SharedKernel\Infrastructure\Clock;
 
-use App\SharedKernel\Contracts\Clock;
+use Vees\Core\SharedKernel\Contracts\Clock;
 use DateTimeImmutable;
 
 final readonly class SystemClock implements Clock

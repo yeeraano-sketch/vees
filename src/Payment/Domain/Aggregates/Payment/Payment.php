@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Domain\Aggregates\Payment;
+namespace Vees\Core\Payment\Domain\Aggregates\Payment;
 
-use App\Payment\Domain\Enums\PaymentMethod;
-use App\Payment\Domain\Enums\PaymentStatus;
-use App\Payment\Domain\Events\PaymentCreated;
-use App\Payment\Domain\Events\PaymentCompleted;
-use App\Payment\Domain\Events\PaymentFailed;
-use App\Payment\Domain\ValueObjects\Money;
-use App\Payment\Domain\ValueObjects\PaymentId;
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\Payment\Domain\Enums\PaymentMethod;
+use Vees\Core\Payment\Domain\Enums\PaymentStatus;
+use Vees\Core\Payment\Domain\Events\PaymentCreated;
+use Vees\Core\Payment\Domain\Events\PaymentCompleted;
+use Vees\Core\Payment\Domain\Events\PaymentFailed;
+use Vees\Core\Payment\Domain\ValueObjects\Money;
+use Vees\Core\Payment\Domain\ValueObjects\PaymentId;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final class Payment extends AggregateRoot
 {

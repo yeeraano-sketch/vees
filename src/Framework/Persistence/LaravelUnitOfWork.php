@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Persistence;
+namespace Vees\Core\Framework\Persistence;
 
-use App\SharedKernel\Domain\Result;
+use Vees\Core\SharedKernel\Domain\Result;
 use Illuminate\Support\Facades\DB;
 
 final class LaravelUnitOfWork implements UnitOfWork

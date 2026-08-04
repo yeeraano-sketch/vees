@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Domain\Enums;
+namespace Vees\Core\Provider\Domain\Enums;
 
 enum VerificationStatus: string
 {

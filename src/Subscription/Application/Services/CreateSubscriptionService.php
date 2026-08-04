@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Application\Services;
+namespace Vees\Core\Subscription\Application\Services;
 
-use App\SharedKernel\Application\Bus\TransactionalCommandBus;
-use App\Subscription\Application\Commands\CreateSubscriptionCommand;
+use Vees\Core\SharedKernel\Application\Bus\TransactionalCommandBus;
+use Vees\Core\Subscription\Application\Commands\CreateSubscriptionCommand;
 
 final readonly class CreateSubscriptionService
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Presentation\Http\Responses;
+namespace Vees\Core\Subscription\Presentation\Http\Responses;
 
 use Illuminate\Http\JsonResponse;
 

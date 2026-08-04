@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Provider\Application\DTOs;
+namespace Vees\Core\Provider\Application\DTOs;
 
-use App\Provider\Domain\Aggregates\Provider\Provider;
+use Vees\Core\Provider\Domain\Aggregates\Provider\Provider;
 
 final readonly class ProviderDto
 {

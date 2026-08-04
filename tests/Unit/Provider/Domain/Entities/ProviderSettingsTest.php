@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Provider\Domain\Entities;
+namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
-use App\Provider\Domain\Entities\ProviderSettings;
-use App\Provider\Domain\ValueObjects\WorkMode;
+use Vees\Core\Provider\Domain\Entities\ProviderSettings;
+use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
 use PHPUnit\Framework\TestCase;
 
 class ProviderSettingsTest extends TestCase

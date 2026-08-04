@@ -2,18 +2,35 @@
 
 declare(strict_types=1);
 
-namespace App\Session\Domain\Aggregates\Session;
+namespace Vees\Core\Session\Domain\Aggregates\Session;
 
-use App\Session\Domain\Enums\SessionStatus;
-use App\Session\Domain\Events\SessionCompleted;
-use App\Session\Domain\Events\SessionCreated;
-use App\Session\Domain\Events\SessionStarted;
-use App\Session\Domain\Exceptions\InvalidSessionState;
-use App\Session\Domain\ValueObjects\SessionId;
-use App\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\Session\Domain\Enums\SessionStatus;
+use Vees\Core\Session\Domain\Events\SessionCompleted;
+use Vees\Core\Session\Domain\Events\SessionCreated;
+use Vees\Core\Session\Domain\Events\SessionStarted;
+use Vees\Core\Session\Domain\ValueObjects\SessionId;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
+use Vees\Core\SharedKernel\Domain\Traits\TransitionsState;
 
 final class Session extends AggregateRoot
 {
+    use TransitionsState;
+
+    private const array ALLOWED_TRANSITIONS = [
+        SessionStatus::Pending->value => [
+            SessionStatus::Accepted->value,
+            SessionStatus::Cancelled->value,
+        ],
+        SessionStatus::Accepted->value => [
+            SessionStatus::Started->value,
+            SessionStatus::Cancelled->value,
+        ],
+        SessionStatus::Started->value => [
+            SessionStatus::Completed->value,
+            SessionStatus::Cancelled->value,
+        ],
+    ];
+
     private function __construct(
         private SessionId $id,
         private string $providerId,
@@ -42,64 +59,71 @@ final class Session extends AggregateRoot
         );
 
         $session->recordEvent(
-            new SessionCreated($id)
+            new SessionCreated($id->value())
         );
 
         return $session;
     }
 
-    public function start(): void
+    public function accept(): void
     {
-        if ($this->status !== SessionStatus::Accepted) {
-            throw new InvalidSessionState(
-                'Session cannot be started.'
-            );
-        }
-
-        $this->status = SessionStatus::Started;
+        $this->status = SessionStatus::from(
+            $this->transitionTo(
+                SessionStatus::Accepted->value,
+                $this->status->value,
+                self::ALLOWED_TRANSITIONS,
+            )
+        );
 
         $this->recordEvent(
-            new SessionStarted($this->id)
+            new SessionStarted($this->id->value())
+        );
+    }
+
+    public function start(): void
+    {
+        $this->status = SessionStatus::from(
+            $this->transitionTo(
+                SessionStatus::Started->value,
+                $this->status->value,
+                self::ALLOWED_TRANSITIONS,
+            )
+        );
+
+        $this->recordEvent(
+            new SessionStarted($this->id->value())
         );
     }
 
     public function complete(): void
     {
-        if ($this->status !== SessionStatus::Started) {
-            throw new InvalidSessionState(
-                'Session cannot be completed.'
-            );
-        }
-
-        $this->status = SessionStatus::Completed;
+        $this->status = SessionStatus::from(
+            $this->transitionTo(
+                SessionStatus::Completed->value,
+                $this->status->value,
+                self::ALLOWED_TRANSITIONS,
+            )
+        );
 
         $this->recordEvent(
-            new SessionCompleted($this->id)
+            new SessionCompleted($this->id->value())
         );
-    }
-
-    public function accept(): void
-    {
-        if ($this->status !== SessionStatus::Pending) {
-            throw new InvalidSessionState(
-                'Session cannot be accepted.'
-            );
-        }
-
-        $this->status = SessionStatus::Accepted;
     }
 
     public function cancel(): void
     {
-        if (
-            $this->status === SessionStatus::Completed
-        ) {
-            throw new InvalidSessionState(
-                'Completed session cannot be cancelled.'
-            );
-        }
+        $this->status = SessionStatus::from(
+            $this->transitionTo(
+                SessionStatus::Cancelled->value,
+                $this->status->value,
+                self::ALLOWED_TRANSITIONS,
+            )
+        );
+    }
 
-        $this->status = SessionStatus::Cancelled;
+    protected function identity(): mixed
+    {
+        return $this->id;
     }
 
     public function id(): SessionId
@@ -115,17 +139,11 @@ final class Session extends AggregateRoot
     public function snapshot(): array
     {
         return [
-
             'id' => (string) $this->id,
-
             'provider_id' => $this->providerId,
-
             'customer_id' => $this->customerId,
-
             'matching_id' => $this->matchingId,
-
             'subscription_id' => $this->subscriptionId,
-
             'status' => $this->status->value,
         ];
     }

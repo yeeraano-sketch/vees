@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Matching\Infrastructure\Persistence\Eloquent\Models;
+namespace Vees\Core\Matching\Infrastructure\Persistence\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;

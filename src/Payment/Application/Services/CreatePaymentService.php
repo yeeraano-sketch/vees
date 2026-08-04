@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Payment\Application\Services;
+namespace Vees\Core\Payment\Application\Services;
 
-use App\Payment\Application\Commands\CreatePaymentCommand;
-use App\SharedKernel\Application\Bus\TransactionalCommandBus;
+use Vees\Core\Payment\Application\Commands\CreatePaymentCommand;
+use Vees\Core\SharedKernel\Application\Bus\TransactionalCommandBus;
 
 final readonly class CreatePaymentService
 {

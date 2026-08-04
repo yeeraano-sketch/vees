@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Notification\Application\Commands;
+namespace Vees\Core\Notification\Application\Commands;
 
-use App\Framework\Application\Commands\Command;
+use Vees\Core\Framework\Application\Commands\Command;
 
 final readonly class CreateNotificationCommand implements Command
 {

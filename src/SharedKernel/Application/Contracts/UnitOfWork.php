@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\SharedKernel\Application\Contracts;
+namespace Vees\Core\SharedKernel\Application\Contracts;
 
-use App\SharedKernel\Domain\Result;
+use Vees\Core\SharedKernel\Domain\Result;
 
 interface UnitOfWork
 {

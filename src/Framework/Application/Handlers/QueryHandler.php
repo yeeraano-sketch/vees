@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Framework\Application\Handlers;
+namespace Vees\Core\Framework\Application\Handlers;
 
-use App\Framework\Application\Queries\Query;
+use Vees\Core\Framework\Application\Queries\Query;
 
 interface QueryHandler
 {

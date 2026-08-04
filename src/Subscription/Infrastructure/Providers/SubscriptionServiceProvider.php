@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Subscription\Infrastructure\Providers;
+namespace Vees\Core\Subscription\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
