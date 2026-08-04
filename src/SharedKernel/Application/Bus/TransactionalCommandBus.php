@@ -9,7 +9,7 @@ use Vees\Core\SharedKernel\Application\Contracts\Command;
 use Vees\Core\SharedKernel\Application\Dispatcher\EventDispatcher;
 use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
-final readonly class TransactionalCommandBus
+final readonly class TransactionalCommandBus implements CommandBusInterface
 {
     public function __construct(
         private CommandBus $commandBus,
@@ -26,25 +26,16 @@ final readonly class TransactionalCommandBus
         $this->unitOfWork->begin();
 
         try {
-
             $result = $this->commandBus->dispatch($command);
-
             $this->unitOfWork->commit();
-
             $this->dispatcher->dispatchAll(
                 $this->collector->all()
             );
-
             $this->collector->clear();
-
             return $result;
-
         } catch (\Throwable $exception) {
-
             $this->collector->clear();
-
             $this->unitOfWork->rollback();
-
             throw $exception;
         }
     }

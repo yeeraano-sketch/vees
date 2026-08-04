@@ -4,23 +4,16 @@ declare(strict_types=1);
 
 namespace Vees\Core\Provider\Domain\Specifications;
 
-use Vees\Core\Provider\Domain\Aggregates\Provider\Provider;
-use Vees\Core\Provider\Domain\Entities\ProviderAvailability;
-use Vees\Core\Session\Domain\Enums\SessionStatus;
+use Vees\Core\Provider\Domain\Contracts\AvailabilityInterface;
+use Vees\Core\Provider\Domain\Enums\AvailabilityStatus;
 
 final class CanAcceptSessionSpecification
 {
-    /**
-     * Checks if a provider is eligible to accept a new session.
-     *
-     * Rule: Provider cannot have more than one active session.
-     * Active sessions are those not yet completed or cancelled.
-     */
     public function isSatisfiedBy(
-        Provider $provider,
+        AvailabilityInterface $availability,
         int $activeSessionsCount,
     ): bool {
-        if ($provider->availability()->status() !== \App\Provider\Domain\Enums\AvailabilityStatus::Online) {
+        if ($availability->status() !== AvailabilityStatus::Available) {
             return false;
         }
 

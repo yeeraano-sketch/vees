@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vees\Core\Notification\Application\Commands;
 
-use Vees\Core\Framework\Application\Commands\Command;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
 
 final readonly class CreateNotificationCommand implements Command
 {
