@@ -15,8 +15,7 @@ final readonly class RegisterUserHandler
 {
     public function __construct(
         private UserRepository $users,
-    ) {
-    }
+    ) {}
 
     public function handle(RegisterUserCommand $command): User
     {
@@ -28,7 +27,6 @@ final readonly class RegisterUserHandler
         );
 
         $this->users->save($user);
-
 
         return $user;
     }

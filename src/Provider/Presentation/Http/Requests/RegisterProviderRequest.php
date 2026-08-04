@@ -16,10 +16,10 @@ final class RegisterProviderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'fullName'    => ['required', 'string', 'max:255'],
+            'fullName' => ['required', 'string', 'max:255'],
             'phoneNumber' => ['required', 'string', 'max:20'],
-            'city'        => ['required', 'string', 'max:100'],
-            'workMode'    => ['required', 'string', 'in:taxi,delivery,taxi_delivery'],
+            'city' => ['required', 'string', 'max:100'],
+            'workMode' => ['required', 'string', 'in:taxi,delivery,taxi_delivery'],
         ];
     }
 }

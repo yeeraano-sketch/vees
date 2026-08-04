@@ -14,8 +14,7 @@ final readonly class GetProviderByIdHandler implements QueryHandler
 {
     public function __construct(
         private ProviderRepository $repository,
-    ) {
-    }
+    ) {}
 
     public function handle(
         GetProviderByIdQuery $query,

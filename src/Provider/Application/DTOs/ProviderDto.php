@@ -17,8 +17,7 @@ final readonly class ProviderDto
         public string $status,
         public bool $verified,
         public string $availability,
-    ) {
-    }
+    ) {}
 
     public static function fromAggregate(
         Provider $provider,

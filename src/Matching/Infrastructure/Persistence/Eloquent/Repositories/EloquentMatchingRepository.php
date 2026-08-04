@@ -16,8 +16,7 @@ final readonly class EloquentMatchingRepository implements MatchingRepository
     public function __construct(
         private MatchingPersistenceAssembler $assembler,
         private AggregateCollector $collector,
-    ) {
-    }
+    ) {}
 
     public function save(
         Matching $matching,

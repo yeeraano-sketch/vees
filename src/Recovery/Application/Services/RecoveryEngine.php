@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Vees\Core\Recovery\Application\Services;
 
+use Vees\Core\Session\Domain\Aggregates\Session\Session;
 use Vees\Core\Session\Domain\Contracts\SessionRepository;
 use Vees\Core\Session\Domain\Enums\SessionStatus;
-use Vees\Core\Session\Domain\ValueObjects\SessionId;
 use Vees\Core\SharedKernel\Application\EventBus\EventBus;
 
 final readonly class RecoveryEngine
@@ -14,8 +14,7 @@ final readonly class RecoveryEngine
     public function __construct(
         private SessionRepository $sessionRepository,
         private EventBus $eventBus,
-    ) {
-    }
+    ) {}
 
     /**
      * Scans for stale sessions and applies recovery actions.
@@ -49,7 +48,7 @@ final readonly class RecoveryEngine
     }
 
     /**
-     * @return \Vees\Core\Session\Domain\Aggregates\Session\Session[]
+     * @return Session[]
      */
     private function findStaleSessions(): array
     {

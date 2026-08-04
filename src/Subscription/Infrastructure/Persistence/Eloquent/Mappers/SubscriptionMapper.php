@@ -14,7 +14,7 @@ final class SubscriptionMapper
         ?SubscriptionModel $model = null,
     ): SubscriptionModel {
 
-        $model ??= new SubscriptionModel();
+        $model ??= new SubscriptionModel;
 
         $snapshot = $subscription->snapshot();
 

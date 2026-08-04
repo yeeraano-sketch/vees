@@ -13,8 +13,7 @@ final class ProviderController extends Controller
 {
     public function __construct(
         private CommandBus $bus,
-    ) {
-    }
+    ) {}
 
     public function store(RegisterProviderRequest $request): JsonResponse
     {

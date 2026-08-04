@@ -11,8 +11,7 @@ final readonly class SynchronousQueryBus implements QueryBus
 {
     public function __construct(
         private HandlerResolver $resolver,
-    ) {
-    }
+    ) {}
 
     public function ask(
         Query $query,

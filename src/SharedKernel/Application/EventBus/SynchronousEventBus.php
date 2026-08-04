@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Vees\Core\SharedKernel\Application\EventBus;
 
-use Vees\Core\SharedKernel\Domain\DomainEvent;
 use Vees\Core\SharedKernel\Application\Subscribers\SubscriberRegistry;
+use Vees\Core\SharedKernel\Domain\DomainEvent;
 
 final readonly class SynchronousEventBus implements EventBus
 {
     public function __construct(
         private SubscriberRegistry $registry,
-    ) {
-    }
+    ) {}
 
     public function dispatch(
         DomainEvent $event,
@@ -22,9 +21,7 @@ final readonly class SynchronousEventBus implements EventBus
 
             $this->registry->subscribersFor(
                 $event::class
-            )
-
-            as $subscriber
+            ) as $subscriber
 
         ) {
 

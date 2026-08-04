@@ -14,8 +14,7 @@ final readonly class RegisterProviderHandler implements CommandHandler
     public function __construct(
         private ProviderFactory $factory,
         private ProviderRepository $repository,
-    ) {
-    }
+    ) {}
 
     public function handle(
         RegisterProviderCommand $command,

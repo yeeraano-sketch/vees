@@ -10,6 +10,5 @@ final readonly class GetSessionByIdQuery implements Query
 {
     public function __construct(
         public string $sessionId,
-    ) {
-    }
+    ) {}
 }

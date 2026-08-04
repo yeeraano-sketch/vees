@@ -12,8 +12,7 @@ final readonly class ProviderPersistenceAssembler
 {
     public function __construct(
         private ProviderMapper $mapper,
-    ) {
-    }
+    ) {}
 
     public function persist(
         Provider $provider,

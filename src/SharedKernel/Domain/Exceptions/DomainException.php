@@ -6,6 +6,4 @@ namespace Vees\Core\SharedKernel\Domain\Exceptions;
 
 use Exception;
 
-abstract class DomainException extends Exception
-{
-}
+abstract class DomainException extends Exception {}

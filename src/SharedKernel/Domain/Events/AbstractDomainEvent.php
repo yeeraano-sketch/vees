@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace Vees\Core\SharedKernel\Domain\Events;
 
-use Vees\Core\SharedKernel\Domain\DomainEvent;
 use Ramsey\Uuid\Uuid;
+use Vees\Core\SharedKernel\Domain\DomainEvent;
 
 abstract class AbstractDomainEvent implements DomainEvent
 {
     private readonly string $eventId;
+
     private readonly string $aggregateId;
+
     private readonly \DateTimeImmutable $occurredOn;
+
     private readonly ?string $correlationId;
+
     private readonly ?string $causationId;
 
     public function __construct(
@@ -22,7 +26,7 @@ abstract class AbstractDomainEvent implements DomainEvent
     ) {
         $this->eventId = Uuid::uuid7()->toString();
         $this->aggregateId = $aggregateId;
-        $this->occurredOn = new \DateTimeImmutable();
+        $this->occurredOn = new \DateTimeImmutable;
         $this->correlationId = $correlationId;
         $this->causationId = $causationId;
     }

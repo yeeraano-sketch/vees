@@ -10,6 +10,5 @@ final readonly class GetNotificationByIdQuery implements Query
 {
     public function __construct(
         public string $notificationId,
-    ) {
-    }
+    ) {}
 }

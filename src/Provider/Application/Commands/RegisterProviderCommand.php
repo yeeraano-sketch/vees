@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Vees\Core\Provider\Application\Commands;
 
-use Vees\Core\SharedKernel\Application\Contracts\Command;
-use Vees\Core\Provider\Presentation\Http\Requests\RegisterProviderRequest;
 use Ramsey\Uuid\Uuid;
+use Vees\Core\Provider\Presentation\Http\Requests\RegisterProviderRequest;
+use Vees\Core\SharedKernel\Application\Contracts\Command;
 
 final readonly class RegisterProviderCommand implements Command
 {
@@ -16,8 +16,7 @@ final readonly class RegisterProviderCommand implements Command
         public string $phoneNumber,
         public string $city,
         public string $workMode,
-    ) {
-    }
+    ) {}
 
     public static function fromRequest(RegisterProviderRequest $request): self
     {

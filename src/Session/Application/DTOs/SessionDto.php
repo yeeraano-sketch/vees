@@ -13,6 +13,5 @@ final readonly class SessionDto
         public string $matchingId,
         public string $subscriptionId,
         public string $status,
-    ) {
-    }
+    ) {}
 }

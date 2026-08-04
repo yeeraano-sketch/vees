@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
+use PHPUnit\Framework\TestCase;
 use Vees\Core\Provider\Domain\Entities\ProviderProfile;
+use Vees\Core\Provider\Domain\ValueObjects\City;
 use Vees\Core\Provider\Domain\ValueObjects\FullName;
 use Vees\Core\Provider\Domain\ValueObjects\PhoneNumber;
-use Vees\Core\Provider\Domain\ValueObjects\City;
-use PHPUnit\Framework\TestCase;
 
 class ProviderProfileTest extends TestCase
 {
@@ -17,9 +17,9 @@ class ProviderProfileTest extends TestCase
         $fullName = new FullName('John');
         $phone = new PhoneNumber('+966501234567');
         $city = new City('Riyadh');
-        
+
         $profile = new ProviderProfile($fullName, $phone, $city);
-        
+
         $this->assertSame($fullName, $profile->fullName());
         $this->assertSame($phone, $profile->phoneNumber());
         $this->assertSame($city, $profile->city());
@@ -32,10 +32,10 @@ class ProviderProfileTest extends TestCase
             new PhoneNumber('+966501234567'),
             new City('Riyadh')
         );
-        
+
         $newCity = new City('Jeddah');
         $profile->changeCity($newCity);
-        
+
         $this->assertSame($newCity, $profile->city());
     }
 }

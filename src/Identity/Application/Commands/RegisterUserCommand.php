@@ -13,6 +13,5 @@ final readonly class RegisterUserCommand
         public string $email,
         public string $passwordHash,
         public UserRole $role,
-    ) {
-    }
+    ) {}
 }

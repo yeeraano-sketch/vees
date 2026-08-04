@@ -16,9 +16,9 @@ final class ValidationMiddleware implements Middleware
     ): mixed {
         if ($message instanceof Validatable) {
             $errors = $message->validate();
-            if (!empty($errors)) {
+            if (! empty($errors)) {
                 throw new DomainException(
-                    'Validation failed: ' . json_encode($errors)
+                    'Validation failed: '.json_encode($errors)
                 );
             }
         }

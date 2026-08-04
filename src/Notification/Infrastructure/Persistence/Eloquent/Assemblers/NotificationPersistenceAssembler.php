@@ -12,8 +12,7 @@ final readonly class NotificationPersistenceAssembler
 {
     public function __construct(
         private NotificationMapper $mapper,
-    ) {
-    }
+    ) {}
 
     public function persist(
         Notification $notification,

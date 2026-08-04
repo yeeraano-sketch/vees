@@ -16,8 +16,7 @@ final readonly class EloquentPaymentRepository implements PaymentRepository
     public function __construct(
         private PaymentPersistenceAssembler $assembler,
         private AggregateCollector $collector,
-    ) {
-    }
+    ) {}
 
     public function save(
         Payment $payment,

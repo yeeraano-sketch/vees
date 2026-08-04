@@ -11,8 +11,7 @@ final class ProviderVerification extends Entity
 {
     public function __construct(
         private VerificationStatus $status = VerificationStatus::Pending,
-    ) {
-    }
+    ) {}
 
     protected function identity(): mixed
     {

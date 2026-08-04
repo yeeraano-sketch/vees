@@ -11,6 +11,5 @@ final readonly class CreateSubscriptionCommand implements Command
     public function __construct(
         public string $providerId,
         public string $plan,
-    ) {
-    }
+    ) {}
 }

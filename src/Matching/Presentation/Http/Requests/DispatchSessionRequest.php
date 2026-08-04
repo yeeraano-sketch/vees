@@ -16,9 +16,9 @@ final class DispatchSessionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sessionId'   => ['required', 'uuid'],
+            'sessionId' => ['required', 'uuid'],
             'serviceType' => ['required', 'integer', 'min:1'],
-            'cityId'      => ['required', 'string', 'max:100'],
+            'cityId' => ['required', 'string', 'max:100'],
         ];
     }
 }

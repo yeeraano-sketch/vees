@@ -10,6 +10,5 @@ final readonly class AcceptSessionCommand implements Command
 {
     public function __construct(
         public string $sessionId,
-    ) {
-    }
+    ) {}
 }

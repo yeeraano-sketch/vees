@@ -9,7 +9,7 @@ use Vees\Core\SharedKernel\Domain\Exceptions\InvalidStateTransitionException;
 trait TransitionsState
 {
     /**
-     * @param array<string, array<string>> $allowedTransitions
+     * @param  array<string, array<string>>  $allowedTransitions
      */
     protected function transitionTo(
         string $newState,
@@ -22,7 +22,7 @@ trait TransitionsState
 
         $allowed = $allowedTransitions[$currentState] ?? [];
 
-        if (!in_array($newState, $allowed, true)) {
+        if (! in_array($newState, $allowed, true)) {
             throw new InvalidStateTransitionException($currentState, $newState);
         }
 

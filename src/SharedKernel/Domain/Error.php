@@ -11,8 +11,7 @@ final readonly class Error extends ValueObject
         public string $code,
         public string $message,
         public array $metadata = [],
-    ) {
-    }
+    ) {}
 
     public static function business(
         string $code,

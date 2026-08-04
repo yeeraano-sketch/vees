@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Vees\Core\Provider\Domain\Entities;
 
-use Vees\Core\Provider\Domain\Enums\AvailabilityStatus;
 use Vees\Core\Provider\Domain\Contracts\AvailabilityInterface;
+use Vees\Core\Provider\Domain\Enums\AvailabilityStatus;
 use Vees\Core\SharedKernel\Domain\Entity;
 
 final class ProviderAvailability extends Entity implements AvailabilityInterface
 {
     public function __construct(
         private AvailabilityStatus $status,
-    ) {
-    }
+    ) {}
 
     protected function identity(): mixed
     {

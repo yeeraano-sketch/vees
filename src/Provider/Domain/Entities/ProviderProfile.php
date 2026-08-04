@@ -15,8 +15,7 @@ final class ProviderProfile extends Entity
         private FullName $fullName,
         private PhoneNumber $phoneNumber,
         private City $city,
-    ) {
-    }
+    ) {}
 
     protected function identity(): mixed
     {

@@ -11,16 +11,16 @@ final class ProviderEligibilityPolicy
     /** @param Specification[] $specifications */
     public function __construct(
         private array $specifications,
-    ) {
-    }
+    ) {}
 
     public function isEligible(mixed $provider): bool
     {
         foreach ($this->specifications as $specification) {
-            if (!$specification->isSatisfiedBy($provider)) {
+            if (! $specification->isSatisfiedBy($provider)) {
                 return false;
             }
         }
+
         return true;
     }
 }

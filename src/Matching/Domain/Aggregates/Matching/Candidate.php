@@ -12,6 +12,5 @@ final readonly class Candidate
         public float $rating,
         public int $waitTimeSeconds,
         public float $score = 0.0,
-    ) {
-    }
+    ) {}
 }

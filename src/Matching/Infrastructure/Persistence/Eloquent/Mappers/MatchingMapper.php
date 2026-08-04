@@ -14,7 +14,7 @@ final class MatchingMapper
         ?MatchingModel $model = null,
     ): MatchingModel {
 
-        $model ??= new MatchingModel();
+        $model ??= new MatchingModel;
 
         $snapshot = $matching->snapshot();
 

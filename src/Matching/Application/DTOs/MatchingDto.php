@@ -11,6 +11,5 @@ final readonly class MatchingDto
         public string $sessionId,
         public ?string $providerId,
         public string $status,
-    ) {
-    }
+    ) {}
 }

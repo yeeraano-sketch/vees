@@ -12,8 +12,7 @@ final readonly class SubscriptionPersistenceAssembler
 {
     public function __construct(
         private SubscriptionMapper $mapper,
-    ) {
-    }
+    ) {}
 
     public function persist(
         Subscription $subscription,

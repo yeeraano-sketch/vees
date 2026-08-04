@@ -22,8 +22,7 @@ final class User extends AggregateRoot
         private Email $email,
         private PasswordHash $passwordHash,
         private UserRole $role,
-    ) {
-    }
+    ) {}
 
     public static function register(
         UserId $id,

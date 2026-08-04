@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Vees\Core\Subscription\Application\Handlers;
 
-use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
 use Vees\Core\SharedKernel\Application\Contracts\Command;
 use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
 use Vees\Core\SharedKernel\Contracts\Clock;
 use Vees\Core\SharedKernel\Contracts\UuidGenerator;
-
 use Vees\Core\Subscription\Application\Commands\CreateSubscriptionCommand;
-
 use Vees\Core\Subscription\Domain\Aggregates\Subscription\SubscriptionFactory;
 use Vees\Core\Subscription\Domain\Contracts\SubscriptionRepository;
 use Vees\Core\Subscription\Domain\Enums\SubscriptionPlan;
@@ -26,15 +24,13 @@ final readonly class CreateSubscriptionHandler implements CommandHandler
         private UnitOfWork $unitOfWork,
         private UuidGenerator $uuid,
         private Clock $clock,
-    ) {
-    }
+    ) {}
 
     public function handle(
         Command $command,
     ): mixed {
 
         /** @var CreateSubscriptionCommand $command */
-
         $startsAt = $this->clock->now();
 
         $endsAt = match ($command->plan) {

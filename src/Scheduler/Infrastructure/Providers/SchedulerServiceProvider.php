@@ -11,10 +11,8 @@ final class SchedulerServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(SchedulerEngine::class, fn () => new SchedulerEngine());
+        $this->app->singleton(SchedulerEngine::class, fn () => new SchedulerEngine);
     }
 
-    public function boot(): void
-    {
-    }
+    public function boot(): void {}
 }

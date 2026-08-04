@@ -11,8 +11,7 @@ final readonly class CreateMatchingService
 {
     public function __construct(
         private TransactionalCommandBus $bus,
-    ) {
-    }
+    ) {}
 
     public function create(
         CreateMatchingCommand $command,

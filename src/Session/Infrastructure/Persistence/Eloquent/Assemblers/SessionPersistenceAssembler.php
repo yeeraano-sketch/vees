@@ -12,8 +12,7 @@ final readonly class SessionPersistenceAssembler
 {
     public function __construct(
         private SessionMapper $mapper,
-    ) {
-    }
+    ) {}
 
     public function persist(
         Session $session,

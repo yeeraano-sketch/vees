@@ -10,12 +10,10 @@ final readonly class MiddlewareResolver
 {
     public function __construct(
         private Container $container,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param list<class-string> $middlewares
-     *
+     * @param  list<class-string>  $middlewares
      * @return list<object>
      */
     public function resolve(
@@ -24,9 +22,7 @@ final readonly class MiddlewareResolver
 
         return array_map(
 
-            fn (string $middleware) =>
-
-                $this->container->make($middleware),
+            fn (string $middleware) => $this->container->make($middleware),
 
             $middlewares,
 

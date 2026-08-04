@@ -10,10 +10,7 @@ final readonly class IdentityRegistrar
 {
     public function __construct(
         private Application $app,
-    ) {
-    }
+    ) {}
 
-    public function register(): void
-    {
-    }
+    public function register(): void {}
 }

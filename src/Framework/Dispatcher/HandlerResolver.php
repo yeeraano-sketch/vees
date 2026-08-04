@@ -16,8 +16,7 @@ final class HandlerResolver
 
     public function __construct(
         private readonly Container $container,
-    ) {
-    }
+    ) {}
 
     public function register(
         string $command,

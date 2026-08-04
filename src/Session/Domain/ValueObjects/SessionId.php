@@ -10,8 +10,7 @@ final readonly class SessionId extends ValueObject
 {
     private function __construct(
         private string $value,
-    ) {
-    }
+    ) {}
 
     public static function fromString(
         string $value,

@@ -12,6 +12,7 @@ final class IsEligibleProviderSpecification
     public function isSatisfiedBy(Provider $provider): bool
     {
         $status = $provider->snapshot()['status'] ?? null;
+
         return $status === ProviderStatus::Active->value;
     }
 }

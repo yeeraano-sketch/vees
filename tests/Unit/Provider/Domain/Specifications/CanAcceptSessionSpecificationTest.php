@@ -15,12 +15,13 @@ final class CanAcceptSessionSpecificationTest extends TestCase
     {
         $availability = $this->createMock(AvailabilityInterface::class);
         $availability->method('status')->willReturn($status);
+
         return $availability;
     }
 
     public function test_provider_with_active_session_cannot_accept_new_session(): void
     {
-        $specification = new CanAcceptSessionSpecification();
+        $specification = new CanAcceptSessionSpecification;
         $availability = $this->createAvailabilityMock(AvailabilityStatus::Available);
 
         $result = $specification->isSatisfiedBy($availability, 1);
@@ -29,7 +30,7 @@ final class CanAcceptSessionSpecificationTest extends TestCase
 
     public function test_provider_without_active_session_can_accept_session(): void
     {
-        $specification = new CanAcceptSessionSpecification();
+        $specification = new CanAcceptSessionSpecification;
         $availability = $this->createAvailabilityMock(AvailabilityStatus::Available);
 
         $result = $specification->isSatisfiedBy($availability, 0);
@@ -38,7 +39,7 @@ final class CanAcceptSessionSpecificationTest extends TestCase
 
     public function test_provider_offline_cannot_accept_session(): void
     {
-        $specification = new CanAcceptSessionSpecification();
+        $specification = new CanAcceptSessionSpecification;
         $availability = $this->createAvailabilityMock(AvailabilityStatus::Offline);
 
         $result = $specification->isSatisfiedBy($availability, 0);

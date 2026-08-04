@@ -14,6 +14,5 @@ final readonly class CreatePaymentCommand implements Command
         public int $amount,
         public string $currency,
         public string $method,
-    ) {
-    }
+    ) {}
 }

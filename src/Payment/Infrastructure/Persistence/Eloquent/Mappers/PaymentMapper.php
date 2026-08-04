@@ -14,7 +14,7 @@ final class PaymentMapper
         ?PaymentModel $model = null,
     ): PaymentModel {
 
-        $model ??= new PaymentModel();
+        $model ??= new PaymentModel;
 
         $snapshot = $payment->snapshot();
 

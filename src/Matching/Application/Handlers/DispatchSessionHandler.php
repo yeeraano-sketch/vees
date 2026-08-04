@@ -12,8 +12,7 @@ final readonly class DispatchSessionHandler implements CommandHandler
 {
     public function __construct(
         private DispatchEngine $engine,
-    ) {
-    }
+    ) {}
 
     public function handle(DispatchSessionCommand $command): string
     {

@@ -11,8 +11,7 @@ final readonly class CreateNotificationService
 {
     public function __construct(
         private CommandBusInterface $bus,
-    ) {
-    }
+    ) {}
 
     public function create(
         CreateNotificationCommand $command,

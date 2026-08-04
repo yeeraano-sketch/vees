@@ -6,6 +6,4 @@ namespace Vees\Core\Session\Domain\Exceptions;
 
 use DomainException;
 
-final class InvalidSessionState extends DomainException
-{
-}
+final class InvalidSessionState extends DomainException {}

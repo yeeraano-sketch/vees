@@ -9,12 +9,11 @@ use Vees\Core\SharedKernel\Application\Contracts\Middleware;
 final readonly class Pipeline
 {
     /**
-     * @param Middleware[] $middlewares
+     * @param  Middleware[]  $middlewares
      */
     public function __construct(
         private array $middlewares,
-    ) {
-    }
+    ) {}
 
     public function send(
         mixed $message,
@@ -27,8 +26,7 @@ final readonly class Pipeline
 
             function (callable $next, Middleware $middleware) {
 
-                return fn (mixed $message)
-                    => $middleware->process($message, $next);
+                return fn (mixed $message) => $middleware->process($message, $next);
 
             },
 

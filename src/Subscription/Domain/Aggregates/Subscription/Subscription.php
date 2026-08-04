@@ -21,8 +21,7 @@ final class Subscription extends AggregateRoot
         private SubscriptionPlan $plan,
         private SubscriptionStatus $status,
         private SubscriptionPeriod $period,
-    ) {
-    }
+    ) {}
 
     public static function create(
         SubscriptionId $id,

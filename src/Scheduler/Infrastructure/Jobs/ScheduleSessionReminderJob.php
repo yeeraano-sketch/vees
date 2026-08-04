@@ -16,8 +16,7 @@ final class ScheduleSessionReminderJob implements ShouldQueue
 
     public function __construct(
         private string $sessionId,
-    ) {
-    }
+    ) {}
 
     public function handle(): void
     {

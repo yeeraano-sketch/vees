@@ -14,6 +14,5 @@ final readonly class CreateSessionCommand implements Command
         public string $customerId,
         public string $matchingId,
         public string $subscriptionId,
-    ) {
-    }
+    ) {}
 }

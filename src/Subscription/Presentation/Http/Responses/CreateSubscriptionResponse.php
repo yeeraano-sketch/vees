@@ -18,6 +18,6 @@ final class CreateSubscriptionResponse
 
             'subscriptionId' => $id,
 
-        ],201);
+        ], 201);
     }
 }

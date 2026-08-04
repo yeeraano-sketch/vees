@@ -16,8 +16,7 @@ final readonly class EloquentSessionRepository implements SessionRepository
     public function __construct(
         private SessionPersistenceAssembler $assembler,
         private AggregateCollector $collector,
-    ) {
-    }
+    ) {}
 
     public function save(
         Session $session,

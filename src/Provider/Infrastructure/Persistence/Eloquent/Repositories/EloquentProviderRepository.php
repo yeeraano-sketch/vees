@@ -14,8 +14,7 @@ final readonly class EloquentProviderRepository implements ProviderRepository
     public function __construct(
         private ProviderPersistenceAssembler $assembler,
         private AggregateCollector $collector,
-    ) {
-    }
+    ) {}
 
     public function save(
         Provider $provider,
@@ -42,6 +41,5 @@ final readonly class EloquentProviderRepository implements ProviderRepository
 
     public function delete(
         Provider $provider,
-    ): void {
-    }
+    ): void {}
 }

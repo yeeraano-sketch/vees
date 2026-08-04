@@ -11,8 +11,7 @@ final readonly class SubscriptionPeriod
     public function __construct(
         private DateTimeImmutable $startsAt,
         private DateTimeImmutable $endsAt,
-    ) {
-    }
+    ) {}
 
     public function startsAt(): DateTimeImmutable
     {

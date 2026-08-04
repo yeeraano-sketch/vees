@@ -13,8 +13,7 @@ final readonly class GetNotificationByIdHandler implements QueryHandler
 {
     public function __construct(
         private NotificationRepository $repository,
-    ) {
-    }
+    ) {}
 
     public function handle(
         GetNotificationByIdQuery $query,

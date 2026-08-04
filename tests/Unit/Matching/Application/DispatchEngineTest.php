@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 use Vees\Core\Matching\Application\Commands\DispatchSessionCommand;
 use Vees\Core\Matching\Application\Services\DispatchEngine;
 use Vees\Core\Matching\Domain\Aggregates\Matching\Candidate;
-use Vees\Core\Matching\Domain\Aggregates\Matching\Matching;
 use Vees\Core\Matching\Domain\Aggregates\Matching\MatchingFactory;
 use Vees\Core\Matching\Domain\Contracts\CandidateProvider;
 use Vees\Core\Matching\Domain\Contracts\MatchingRepository;
@@ -16,7 +15,9 @@ use Vees\Core\Matching\Domain\Contracts\MatchingRepository;
 final class DispatchEngineTest extends TestCase
 {
     private CandidateProvider $candidateProvider;
+
     private MatchingRepository $repository;
+
     private DispatchEngine $engine;
 
     protected function setUp(): void
@@ -26,7 +27,7 @@ final class DispatchEngineTest extends TestCase
         $this->repository = $this->createMock(MatchingRepository::class);
         $this->engine = new DispatchEngine(
             $this->candidateProvider,
-            new MatchingFactory(),
+            new MatchingFactory,
             $this->repository,
         );
     }

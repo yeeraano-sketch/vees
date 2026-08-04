@@ -13,8 +13,7 @@ final readonly class GetSessionByIdHandler implements QueryHandler
 {
     public function __construct(
         private SessionRepository $repository,
-    ) {
-    }
+    ) {}
 
     public function handle(
         GetSessionByIdQuery $query,

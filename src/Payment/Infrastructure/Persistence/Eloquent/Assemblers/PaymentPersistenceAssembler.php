@@ -12,8 +12,7 @@ final readonly class PaymentPersistenceAssembler
 {
     public function __construct(
         private PaymentMapper $mapper,
-    ) {
-    }
+    ) {}
 
     public function persist(
         Payment $payment,

@@ -13,8 +13,7 @@ final readonly class UserDto
         public string $email,
         public string $role,
         public bool $active,
-    ) {
-    }
+    ) {}
 
     public static function fromAggregate(User $user): self
     {

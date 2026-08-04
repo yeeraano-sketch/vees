@@ -10,6 +10,5 @@ final readonly class CancelSessionCommand implements Command
 {
     public function __construct(
         public string $sessionId,
-    ) {
-    }
+    ) {}
 }

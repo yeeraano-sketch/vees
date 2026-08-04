@@ -16,6 +16,7 @@ use Vees\Core\Session\Domain\ValueObjects\SessionId;
 final class ProviderSessionLimitTest extends TestCase
 {
     private SessionRepository $repository;
+
     private SessionEngine $engine;
 
     protected function setUp(): void
@@ -24,8 +25,8 @@ final class ProviderSessionLimitTest extends TestCase
         $this->repository = $this->createMock(SessionRepository::class);
         $this->engine = new SessionEngine(
             $this->repository,
-            new SessionFactory(),
-            new CanAcceptSessionSpecification(),
+            new SessionFactory,
+            new CanAcceptSessionSpecification,
         );
     }
 

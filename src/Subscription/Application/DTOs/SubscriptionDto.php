@@ -8,6 +8,5 @@ final readonly class SubscriptionDto
 {
     public function __construct(
         public string $id,
-    ) {
-    }
+    ) {}
 }

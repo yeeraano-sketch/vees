@@ -13,7 +13,18 @@ final class PaymentRefunded extends AbstractDomainEvent
         parent::__construct($paymentId, $correlationId, $causationId);
     }
 
-    public function entityType(): string { return 'Payment'; }
-    public function producer(): string { return 'PaymentModule'; }
-    public function payload(): array { return ['paymentId' => $this->entityId()]; }
+    public function entityType(): string
+    {
+        return 'Payment';
+    }
+
+    public function producer(): string
+    {
+        return 'PaymentModule';
+    }
+
+    public function payload(): array
+    {
+        return ['paymentId' => $this->entityId()];
+    }
 }

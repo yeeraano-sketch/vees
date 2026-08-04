@@ -24,8 +24,7 @@ final class Payment extends AggregateRoot
         private Money $money,
         private PaymentMethod $method,
         private PaymentStatus $status,
-    ) {
-    }
+    ) {}
 
     public static function create(
         PaymentId $id,
@@ -113,12 +112,12 @@ final class Payment extends AggregateRoot
     public function snapshot(): array
     {
         return [
-            'id'            => (string) $this->id,
-            'provider_id'     => $this->providerId,
+            'id' => (string) $this->id,
+            'provider_id' => $this->providerId,
             'subscription_id' => $this->subscriptionId,
-            'amount'         => $this->money->toArray(),
-            'method'         => $this->method->value,
-            'status'         => $this->status->value,
+            'amount' => $this->money->toArray(),
+            'method' => $this->method->value,
+            'status' => $this->status->value,
         ];
     }
 }

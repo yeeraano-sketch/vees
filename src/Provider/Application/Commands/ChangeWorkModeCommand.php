@@ -11,6 +11,5 @@ final readonly class ChangeWorkModeCommand implements Command
     public function __construct(
         public string $providerId,
         public string $workMode,
-    ) {
-    }
+    ) {}
 }

@@ -12,6 +12,5 @@ final readonly class NotificationDto
         public string $title,
         public string $message,
         public string $status,
-    ) {
-    }
+    ) {}
 }

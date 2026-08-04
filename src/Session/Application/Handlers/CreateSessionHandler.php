@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Vees\Core\Session\Application\Handlers;
 
-use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
 use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Domain\Aggregates\Session\SessionFactory;
 use Vees\Core\Session\Domain\Contracts\SessionRepository;
 use Vees\Core\Session\Domain\ValueObjects\SessionId;
 use Vees\Core\SharedKernel\Application\Contracts\Command;
 use Vees\Core\SharedKernel\Application\Contracts\CommandHandler;
+use Vees\Core\SharedKernel\Application\Contracts\UnitOfWork;
 use Vees\Core\SharedKernel\Contracts\UuidGenerator;
 
 final readonly class CreateSessionHandler implements CommandHandler
@@ -20,15 +20,13 @@ final readonly class CreateSessionHandler implements CommandHandler
         private SessionRepository $repository,
         private UnitOfWork $unitOfWork,
         private UuidGenerator $uuid,
-    ) {
-    }
+    ) {}
 
     public function handle(
         Command $command,
     ): mixed {
 
         /** @var CreateSessionCommand $command */
-
         $session = $this->factory->create(
 
             id: SessionId::fromString(

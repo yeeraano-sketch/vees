@@ -10,8 +10,7 @@ final readonly class PolicyEngine
 {
     public function __construct(
         private ProviderEligibilityPolicy $eligibilityPolicy,
-    ) {
-    }
+    ) {}
 
     /**
      * Evaluate a provider against all active policies.
@@ -21,7 +20,7 @@ final readonly class PolicyEngine
     {
         $actions = [];
 
-        if (!$this->eligibilityPolicy->isEligible($provider)) {
+        if (! $this->eligibilityPolicy->isEligible($provider)) {
             $actions[] = 'suspend';
         }
 

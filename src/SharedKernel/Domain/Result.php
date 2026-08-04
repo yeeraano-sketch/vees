@@ -10,19 +10,17 @@ namespace Vees\Core\SharedKernel\Domain;
 final readonly class Result
 {
     /**
-     * @param TValue|null $value
+     * @param  TValue|null  $value
      */
     private function __construct(
         private mixed $value,
         private ?Error $error,
-    ) {
-    }
+    ) {}
 
     /**
      * @template T
      *
-     * @param T $value
-     *
+     * @param  T  $value
      * @return Result<T>
      */
     public static function success(mixed $value = null): self

@@ -8,14 +8,12 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Vees\Core\Matching\Application\Commands\DispatchSessionCommand;
 use Vees\Core\SharedKernel\Application\Bus\CommandBus;
-use Ramsey\Uuid\Uuid;
 
 final class MatchingController extends Controller
 {
     public function __construct(
         private CommandBus $bus,
-    ) {
-    }
+    ) {}
 
     public function dispatch(DispatchSessionRequest $request): JsonResponse
     {

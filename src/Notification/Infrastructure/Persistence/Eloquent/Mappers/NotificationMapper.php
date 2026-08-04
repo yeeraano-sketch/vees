@@ -14,7 +14,7 @@ final class NotificationMapper
         ?NotificationModel $model = null,
     ): NotificationModel {
 
-        $model ??= new NotificationModel();
+        $model ??= new NotificationModel;
 
         $snapshot = $notification->snapshot();
 

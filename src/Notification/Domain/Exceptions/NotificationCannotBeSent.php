@@ -6,6 +6,4 @@ namespace Vees\Core\Notification\Domain\Exceptions;
 
 use DomainException;
 
-final class NotificationCannotBeSent extends DomainException
-{
-}
+final class NotificationCannotBeSent extends DomainException {}

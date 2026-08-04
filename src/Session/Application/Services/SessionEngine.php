@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Vees\Core\Session\Application\Services;
 
 use Vees\Core\Provider\Domain\Specifications\CanAcceptSessionSpecification;
-use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Application\Commands\AcceptSessionCommand;
-use Vees\Core\Session\Application\Commands\CompleteSessionCommand;
 use Vees\Core\Session\Application\Commands\CancelSessionCommand;
+use Vees\Core\Session\Application\Commands\CompleteSessionCommand;
+use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Domain\Aggregates\Session\Session;
 use Vees\Core\Session\Domain\Aggregates\Session\SessionFactory;
 use Vees\Core\Session\Domain\Contracts\SessionRepository;
@@ -20,8 +20,7 @@ final readonly class SessionEngine
         private SessionRepository $repository,
         private SessionFactory $factory,
         private CanAcceptSessionSpecification $canAcceptSpec,
-    ) {
-    }
+    ) {}
 
     public function create(CreateSessionCommand $command): Session
     {
@@ -42,7 +41,7 @@ final readonly class SessionEngine
     {
         $session = $this->repository->findById(SessionId::fromString($command->sessionId));
 
-        if (!$session) {
+        if (! $session) {
             throw new \RuntimeException('Session not found.');
         }
 
@@ -51,7 +50,7 @@ final readonly class SessionEngine
             $session->providerId()
         );
 
-        if (!$this->canAcceptSpec->isSatisfiedBy(
+        if (! $this->canAcceptSpec->isSatisfiedBy(
             $session->availability(),
             $activeSessionsCount
         )) {
@@ -68,7 +67,7 @@ final readonly class SessionEngine
     {
         $session = $this->repository->findById(SessionId::fromString($command->sessionId));
 
-        if (!$session) {
+        if (! $session) {
             throw new \RuntimeException('Session not found.');
         }
 
@@ -82,7 +81,7 @@ final readonly class SessionEngine
     {
         $session = $this->repository->findById(SessionId::fromString($command->sessionId));
 
-        if (!$session) {
+        if (! $session) {
             throw new \RuntimeException('Session not found.');
         }
 

@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 namespace Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Repositories;
 
+use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 use Vees\Core\Subscription\Domain\Aggregates\Subscription\Subscription;
 use Vees\Core\Subscription\Domain\Contracts\SubscriptionRepository;
 use Vees\Core\Subscription\Domain\ValueObjects\SubscriptionId;
 use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Assemblers\SubscriptionPersistenceAssembler;
 use Vees\Core\Subscription\Infrastructure\Persistence\Eloquent\Models\SubscriptionModel;
-use Vees\Core\SharedKernel\Application\Transactions\AggregateCollector;
 
 final readonly class EloquentSubscriptionRepository implements SubscriptionRepository
 {
     public function __construct(
         private SubscriptionPersistenceAssembler $assembler,
         private AggregateCollector $collector,
-    ) {
-    }
+    ) {}
 
     public function save(
         Subscription $subscription,

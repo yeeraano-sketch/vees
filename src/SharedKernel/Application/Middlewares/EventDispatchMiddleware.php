@@ -12,8 +12,7 @@ final readonly class EventDispatchMiddleware implements Middleware
 {
     public function __construct(
         private EventDispatcher $dispatcher,
-    ) {
-    }
+    ) {}
 
     public function process(
         mixed $message,

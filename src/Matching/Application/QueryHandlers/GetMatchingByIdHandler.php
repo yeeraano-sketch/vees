@@ -13,8 +13,7 @@ final readonly class GetMatchingByIdHandler implements QueryHandler
 {
     public function __construct(
         private MatchingRepository $repository,
-    ) {
-    }
+    ) {}
 
     public function handle(
         GetMatchingByIdQuery $query,

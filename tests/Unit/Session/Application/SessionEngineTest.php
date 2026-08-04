@@ -6,10 +6,10 @@ namespace Vees\Core\Tests\Unit\Session\Application;
 
 use PHPUnit\Framework\TestCase;
 use Vees\Core\Provider\Domain\Specifications\CanAcceptSessionSpecification;
-use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Application\Commands\AcceptSessionCommand;
-use Vees\Core\Session\Application\Commands\CompleteSessionCommand;
 use Vees\Core\Session\Application\Commands\CancelSessionCommand;
+use Vees\Core\Session\Application\Commands\CompleteSessionCommand;
+use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Application\Services\SessionEngine;
 use Vees\Core\Session\Domain\Aggregates\Session\Session;
 use Vees\Core\Session\Domain\Aggregates\Session\SessionFactory;
@@ -20,6 +20,7 @@ use Vees\Core\Session\Domain\ValueObjects\SessionId;
 final class SessionEngineTest extends TestCase
 {
     private SessionRepository $repository;
+
     private SessionEngine $engine;
 
     protected function setUp(): void
@@ -28,8 +29,8 @@ final class SessionEngineTest extends TestCase
         $this->repository = $this->createMock(SessionRepository::class);
         $this->engine = new SessionEngine(
             $this->repository,
-            new SessionFactory(),
-            new CanAcceptSessionSpecification(),
+            new SessionFactory,
+            new CanAcceptSessionSpecification,
         );
     }
 
@@ -71,7 +72,7 @@ final class SessionEngineTest extends TestCase
         $this->repository
             ->expects($this->once())
             ->method('findById')
-            ->with($this->callback(fn(SessionId $id) => $id->value() === 'test-id'))
+            ->with($this->callback(fn (SessionId $id) => $id->value() === 'test-id'))
             ->willReturn($session);
 
         $this->repository

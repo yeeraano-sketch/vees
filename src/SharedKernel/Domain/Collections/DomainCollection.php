@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Vees\Core\SharedKernel\Domain\Collections;
 
+use ArrayIterator;
 use Countable;
 use IteratorAggregate;
-use ArrayIterator;
 use Traversable;
 
 abstract class DomainCollection implements Countable, IteratorAggregate

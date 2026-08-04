@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Vees\Core\Tests\Unit\Provider\Domain\ValueObjects;
 
-use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
 use PHPUnit\Framework\TestCase;
+use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
 
 class ProviderIdTest extends TestCase
 {

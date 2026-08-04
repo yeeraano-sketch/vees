@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Vees\Core\Session\Infrastructure\Persistence\Eloquent\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Model;
 
 final class SessionModel extends Model
 {

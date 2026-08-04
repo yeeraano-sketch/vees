@@ -16,6 +16,5 @@ final class ProviderState
         public ProviderAvailability $availability,
         public ProviderVerification $verification,
         public ProviderSettings $settings,
-    ) {
-    }
+    ) {}
 }

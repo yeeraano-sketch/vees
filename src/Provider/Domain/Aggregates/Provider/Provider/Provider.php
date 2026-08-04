@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Vees\Core\Provider\Domain\Aggregates\Provider;
 
-use Vees\Core\SharedKernel\Domain\AggregateRoot;
 use Vees\Core\Provider\Domain\Aggregates\Provider\Internal\ProviderState;
 use Vees\Core\Provider\Domain\Entities\ProviderAvailability;
 use Vees\Core\Provider\Domain\Entities\ProviderProfile;
@@ -13,6 +12,7 @@ use Vees\Core\Provider\Domain\Entities\ProviderVerification;
 use Vees\Core\Provider\Domain\Events\ProviderRegistered;
 use Vees\Core\Provider\Domain\ValueObjects\ProviderId;
 use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
+use Vees\Core\SharedKernel\Domain\AggregateRoot;
 
 final class Provider extends AggregateRoot
 {
@@ -20,8 +20,7 @@ final class Provider extends AggregateRoot
         private ProviderId $id,
         private ProviderState $state,
         private WorkMode $workMode,
-    ) {
-    }
+    ) {}
 
     public static function register(
         ProviderId $id,

@@ -18,8 +18,7 @@ final class Notification extends AggregateRoot
         private string $title,
         private string $message,
         private NotificationStatus $status,
-    ) {
-    }
+    ) {}
 
     public static function create(
         NotificationId $id,
@@ -46,7 +45,7 @@ final class Notification extends AggregateRoot
     public function markAsSent(): void
     {
         if ($this->status !== NotificationStatus::Pending) {
-            throw new NotificationCannotBeSent();
+            throw new NotificationCannotBeSent;
         }
 
         $this->status = NotificationStatus::Sent;
@@ -55,7 +54,7 @@ final class Notification extends AggregateRoot
     public function markAsFailed(): void
     {
         if ($this->status !== NotificationStatus::Pending) {
-            throw new NotificationCannotBeSent();
+            throw new NotificationCannotBeSent;
         }
 
         $this->status = NotificationStatus::Failed;

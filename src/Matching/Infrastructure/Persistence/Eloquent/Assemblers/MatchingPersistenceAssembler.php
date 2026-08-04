@@ -12,8 +12,7 @@ final readonly class MatchingPersistenceAssembler
 {
     public function __construct(
         private MatchingMapper $mapper,
-    ) {
-    }
+    ) {}
 
     public function persist(
         Matching $matching,

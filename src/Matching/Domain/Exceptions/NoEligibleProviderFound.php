@@ -6,6 +6,4 @@ namespace Vees\Core\Matching\Domain\Exceptions;
 
 use DomainException;
 
-final class NoEligibleProviderFound extends DomainException
-{
-}
+final class NoEligibleProviderFound extends DomainException {}

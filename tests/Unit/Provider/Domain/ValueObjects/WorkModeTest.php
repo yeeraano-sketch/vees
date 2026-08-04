@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Vees\Core\Tests\Unit\Provider\Domain\ValueObjects;
 
-use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
 use PHPUnit\Framework\TestCase;
+use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
 
 class WorkModeTest extends TestCase
 {

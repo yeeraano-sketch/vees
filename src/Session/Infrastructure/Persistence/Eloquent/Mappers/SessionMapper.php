@@ -14,7 +14,7 @@ final class SessionMapper
         ?SessionModel $model = null,
     ): SessionModel {
 
-        $model ??= new SessionModel();
+        $model ??= new SessionModel;
 
         $snapshot = $session->snapshot();
 

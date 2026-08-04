@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Vees\Core\SharedKernel\Application\Middlewares;
 
-use Vees\Core\SharedKernel\Application\Contracts\Middleware;
 use Psr\Log\LoggerInterface;
+use Vees\Core\SharedKernel\Application\Contracts\Middleware;
 
 final readonly class LoggingMiddleware implements Middleware
 {
     public function __construct(
         private ?LoggerInterface $logger = null,
-    ) {
-    }
+    ) {}
 
     public function process(
         mixed $message,

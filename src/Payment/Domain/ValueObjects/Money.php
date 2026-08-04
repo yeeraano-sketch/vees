@@ -9,8 +9,7 @@ final readonly class Money
     public function __construct(
         private int $amount,
         private string $currency,
-    ) {
-    }
+    ) {}
 
     public function amount(): int
     {

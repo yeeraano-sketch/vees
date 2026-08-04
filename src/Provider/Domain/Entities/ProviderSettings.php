@@ -11,8 +11,7 @@ final class ProviderSettings extends Entity
 {
     public function __construct(
         private WorkMode $workMode,
-    ) {
-    }
+    ) {}
 
     protected function identity(): mixed
     {

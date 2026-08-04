@@ -18,8 +18,7 @@ final class DispatchEventJob implements ShouldQueue
 
     public function __construct(
         private DomainEvent $event,
-    ) {
-    }
+    ) {}
 
     public function handle(SubscriberRegistry $registry): void
     {

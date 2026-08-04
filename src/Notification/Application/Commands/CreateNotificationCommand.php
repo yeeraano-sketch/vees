@@ -12,6 +12,5 @@ final readonly class CreateNotificationCommand implements Command
         public string $recipientId,
         public string $title,
         public string $message,
-    ) {
-    }
+    ) {}
 }

@@ -11,8 +11,7 @@ final readonly class CreateSessionService
 {
     public function __construct(
         private TransactionalCommandBus $bus,
-    ) {
-    }
+    ) {}
 
     public function create(
         CreateSessionCommand $command,

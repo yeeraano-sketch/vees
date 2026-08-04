@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Vees\Core\Identity\Domain\ValueObjects;
 
-use Vees\Core\SharedKernel\Domain\ValueObject;
 use InvalidArgumentException;
+use Vees\Core\SharedKernel\Domain\ValueObject;
 
 final readonly class PasswordHash extends ValueObject
 {

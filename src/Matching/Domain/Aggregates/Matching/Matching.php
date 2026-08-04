@@ -18,8 +18,7 @@ final class Matching extends AggregateRoot
         private string $sessionId,
         private ?string $providerId,
         private MatchingStatus $status,
-    ) {
-    }
+    ) {}
 
     public static function create(
         MatchingId $id,
@@ -45,7 +44,7 @@ final class Matching extends AggregateRoot
     ): void {
 
         if ($providerId === '') {
-            throw new NoEligibleProviderFound();
+            throw new NoEligibleProviderFound;
         }
 
         $this->providerId = $providerId;

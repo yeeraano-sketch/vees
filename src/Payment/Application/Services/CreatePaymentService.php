@@ -11,8 +11,7 @@ final readonly class CreatePaymentService
 {
     public function __construct(
         private TransactionalCommandBus $bus,
-    ) {
-    }
+    ) {}
 
     public function create(
         CreatePaymentCommand $command,

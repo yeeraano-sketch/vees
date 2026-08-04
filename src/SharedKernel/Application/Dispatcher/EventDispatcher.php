@@ -11,8 +11,7 @@ final readonly class EventDispatcher
 {
     public function __construct(
         private EventBus $bus,
-    ) {
-    }
+    ) {}
 
     public function dispatchFrom(
         AggregateRoot $aggregate,
@@ -20,9 +19,7 @@ final readonly class EventDispatcher
 
         foreach (
 
-            $aggregate->releaseEvents()
-
-            as $event
+            $aggregate->releaseEvents() as $event
 
         ) {
 
@@ -32,7 +29,7 @@ final readonly class EventDispatcher
     }
 
     /**
-     * @param iterable<AggregateRoot> $aggregates
+     * @param  iterable<AggregateRoot>  $aggregates
      */
     public function dispatchAll(
         iterable $aggregates,

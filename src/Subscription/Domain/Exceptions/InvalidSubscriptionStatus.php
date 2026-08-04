@@ -6,6 +6,4 @@ namespace Vees\Core\Subscription\Domain\Exceptions;
 
 use DomainException;
 
-final class InvalidSubscriptionStatus extends DomainException
-{
-}
+final class InvalidSubscriptionStatus extends DomainException {}

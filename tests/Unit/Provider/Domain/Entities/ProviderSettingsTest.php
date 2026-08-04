@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
+use PHPUnit\Framework\TestCase;
 use Vees\Core\Provider\Domain\Entities\ProviderSettings;
 use Vees\Core\Provider\Domain\ValueObjects\WorkMode;
-use PHPUnit\Framework\TestCase;
 
 class ProviderSettingsTest extends TestCase
 {

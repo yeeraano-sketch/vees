@@ -28,7 +28,5 @@ final class DomainServiceProvider extends ServiceProvider
             ->register();
     }
 
-    public function boot(): void
-    {
-    }
+    public function boot(): void {}
 }

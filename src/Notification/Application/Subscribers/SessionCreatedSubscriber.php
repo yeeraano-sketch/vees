@@ -7,15 +7,14 @@ namespace Vees\Core\Notification\Application\Subscribers;
 use Vees\Core\Notification\Application\Commands\CreateNotificationCommand;
 use Vees\Core\Notification\Application\Services\CreateNotificationService;
 use Vees\Core\Session\Domain\Events\SessionCreated;
-use Vees\Core\SharedKernel\Domain\DomainEvent;
 use Vees\Core\SharedKernel\Application\Subscribers\EventSubscriber;
+use Vees\Core\SharedKernel\Domain\DomainEvent;
 
 final readonly class SessionCreatedSubscriber implements EventSubscriber
 {
     public function __construct(
         private CreateNotificationService $service,
-    ) {
-    }
+    ) {}
 
     public static function subscribeTo(): string
     {
@@ -27,7 +26,6 @@ final readonly class SessionCreatedSubscriber implements EventSubscriber
     ): void {
 
         /** @var SessionCreated $event */
-
         $this->service->create(
 
             new CreateNotificationCommand(

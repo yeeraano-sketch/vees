@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Vees\Core\Tests\Unit\Provider\Domain\Entities;
 
+use PHPUnit\Framework\TestCase;
 use Vees\Core\Provider\Domain\Entities\ProviderVerification;
 use Vees\Core\Provider\Domain\Enums\VerificationStatus;
-use PHPUnit\Framework\TestCase;
 
 class ProviderVerificationTest extends TestCase
 {
     public function test_default_is_pending(): void
     {
-        $v = new ProviderVerification();
+        $v = new ProviderVerification;
         $this->assertSame(VerificationStatus::Pending, $v->status());
     }
 
     public function test_verify(): void
     {
-        $v = new ProviderVerification();
+        $v = new ProviderVerification;
         $v->verify();
         $this->assertTrue($v->isVerified());
     }

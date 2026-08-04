@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Vees\Core\Matching\Application\Services;
 
+use Ramsey\Uuid\Uuid;
 use Vees\Core\Matching\Application\Commands\DispatchSessionCommand;
 use Vees\Core\Matching\Domain\Aggregates\Matching\Candidate;
 use Vees\Core\Matching\Domain\Aggregates\Matching\MatchingFactory;
 use Vees\Core\Matching\Domain\Contracts\CandidateProvider;
 use Vees\Core\Matching\Domain\Contracts\MatchingRepository;
 use Vees\Core\Matching\Domain\ValueObjects\MatchingId;
-use Ramsey\Uuid\Uuid;
 
 final readonly class DispatchEngine
 {
@@ -18,8 +18,7 @@ final readonly class DispatchEngine
         private CandidateProvider $candidateProvider,
         private MatchingFactory $factory,
         private MatchingRepository $repository,
-    ) {
-    }
+    ) {}
 
     public function dispatch(DispatchSessionCommand $command): string
     {
@@ -49,7 +48,7 @@ final readonly class DispatchEngine
     }
 
     /**
-     * @param Candidate[] $candidates
+     * @param  Candidate[]  $candidates
      */
     private function selectBestCandidate(array $candidates): Candidate
     {

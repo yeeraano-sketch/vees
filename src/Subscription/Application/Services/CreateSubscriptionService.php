@@ -11,8 +11,7 @@ final readonly class CreateSubscriptionService
 {
     public function __construct(
         private TransactionalCommandBus $bus,
-    ) {
-    }
+    ) {}
 
     public function create(
         CreateSubscriptionCommand $command,

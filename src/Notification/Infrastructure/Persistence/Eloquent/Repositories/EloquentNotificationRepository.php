@@ -16,8 +16,7 @@ final readonly class EloquentNotificationRepository implements NotificationRepos
     public function __construct(
         private NotificationPersistenceAssembler $assembler,
         private AggregateCollector $collector,
-    ) {
-    }
+    ) {}
 
     public function save(
         Notification $notification,

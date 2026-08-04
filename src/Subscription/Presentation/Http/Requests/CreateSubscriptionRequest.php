@@ -17,7 +17,7 @@ final class CreateSubscriptionRequest extends FormRequest
     {
         return [
 
-            'providerId' => ['required','uuid'],
+            'providerId' => ['required', 'uuid'],
 
             'plan' => [
                 'required',

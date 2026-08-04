@@ -14,7 +14,7 @@ final class ProviderMapper
         ?ProviderModel $model = null,
     ): ProviderModel {
 
-        $model ??= new ProviderModel();
+        $model ??= new ProviderModel;
 
         $snapshot = $provider->snapshot();
 

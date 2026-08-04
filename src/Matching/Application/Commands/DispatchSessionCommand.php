@@ -12,6 +12,5 @@ final readonly class DispatchSessionCommand implements Command
         public string $sessionId,
         public int $serviceType,
         public string $cityId,
-    ) {
-    }
+    ) {}
 }

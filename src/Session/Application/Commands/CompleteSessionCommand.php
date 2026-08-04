@@ -10,6 +10,5 @@ final readonly class CompleteSessionCommand implements Command
 {
     public function __construct(
         public string $sessionId,
-    ) {
-    }
+    ) {}
 }
