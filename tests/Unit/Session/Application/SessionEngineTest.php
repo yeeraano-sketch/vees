@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Vees\Core\Tests\Unit\Session\Application;
 
 use PHPUnit\Framework\TestCase;
+use Vees\Core\Provider\Domain\Specifications\CanAcceptSessionSpecification;
 use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Application\Commands\AcceptSessionCommand;
 use Vees\Core\Session\Application\Commands\CompleteSessionCommand;
@@ -25,7 +26,11 @@ final class SessionEngineTest extends TestCase
     {
         parent::setUp();
         $this->repository = $this->createMock(SessionRepository::class);
-        $this->engine = new SessionEngine($this->repository, new SessionFactory());
+        $this->engine = new SessionEngine(
+            $this->repository,
+            new SessionFactory(),
+            new CanAcceptSessionSpecification(),
+        );
     }
 
     private function createTestSession(string $id): Session
@@ -71,6 +76,12 @@ final class SessionEngineTest extends TestCase
 
         $this->repository
             ->expects($this->once())
+            ->method('countActiveSessionsForProvider')
+            ->with('provider-1')
+            ->willReturn(0);
+
+        $this->repository
+            ->expects($this->once())
             ->method('save');
 
         $command = new AcceptSessionCommand(sessionId: 'test-id');
@@ -82,8 +93,8 @@ final class SessionEngineTest extends TestCase
     public function test_complete_session(): void
     {
         $session = $this->createTestSession('test-id');
-        $session->accept(); // Must accept before complete
-        $session->start();  // Must start before complete
+        $session->accept();
+        $session->start();
 
         $this->repository
             ->expects($this->once())
