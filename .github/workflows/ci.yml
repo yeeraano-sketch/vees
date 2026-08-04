@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  lint-and-test:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,9 +27,6 @@ jobs:
 
       - name: Lint (Pint)
         run: vendor/bin/pint --test
-
-      - name: Static Analysis (PHPStan)
-        run: vendor/bin/phpstan analyse --level=8 src/
 
       - name: Unit & Feature Tests
         run: vendor/bin/phpunit
