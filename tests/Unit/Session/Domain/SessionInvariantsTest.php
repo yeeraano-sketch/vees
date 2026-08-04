@@ -6,7 +6,7 @@ namespace Vees\Core\Tests\Unit\Session\Domain;
 
 use PHPUnit\Framework\TestCase;
 use Vees\Core\Session\Domain\Aggregates\Session\Session;
-use Vees\Core\Session\Domain\Enums\SessionStatus;
+use Vees\Core\Session\Domain\Exceptions\InvalidSessionState;
 use Vees\Core\Session\Domain\ValueObjects\SessionId;
 use Vees\Core\SharedKernel\Domain\Exceptions\DomainException;
 
@@ -36,5 +36,13 @@ final class SessionInvariantsTest extends TestCase
         $this->expectExceptionMessage('Invalid state transition from "completed" to "cancelled".');
 
         $this->session->cancel();
+    }
+
+    public function test_cannot_reassign_provider_to_session(): void
+    {
+        $this->expectException(InvalidSessionState::class);
+        $this->expectExceptionMessage('Session is already assigned to a provider. Cannot reassign.');
+
+        $this->session->assignProvider('provider-2');
     }
 }

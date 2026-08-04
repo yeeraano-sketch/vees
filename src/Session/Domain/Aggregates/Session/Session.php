@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Vees\Core\Session\Domain\Aggregates\Session;
 
+use Vees\Core\Provider\Domain\Contracts\AvailabilityInterface;
+use Vees\Core\Provider\Domain\Entities\ProviderAvailability;
+use Vees\Core\Provider\Domain\Enums\AvailabilityStatus;
 use Vees\Core\Session\Domain\Enums\SessionStatus;
 use Vees\Core\Session\Domain\Events\SessionCompleted;
 use Vees\Core\Session\Domain\Events\SessionCreated;
 use Vees\Core\Session\Domain\Events\SessionStarted;
+use Vees\Core\Session\Domain\Exceptions\InvalidSessionState;
 use Vees\Core\Session\Domain\ValueObjects\SessionId;
 use Vees\Core\SharedKernel\Domain\AggregateRoot;
 use Vees\Core\SharedKernel\Domain\Traits\TransitionsState;
@@ -31,6 +35,8 @@ final class Session extends AggregateRoot
         ],
     ];
 
+    private bool $providerLocked = false;
+
     private function __construct(
         private SessionId $id,
         private string $providerId,
@@ -39,6 +45,9 @@ final class Session extends AggregateRoot
         private string $subscriptionId,
         private SessionStatus $status,
     ) {
+        if ($providerId !== '') {
+            $this->providerLocked = true;
+        }
     }
 
     public static function create(
@@ -63,6 +72,27 @@ final class Session extends AggregateRoot
         );
 
         return $session;
+    }
+
+    public function assignProvider(string $providerId): void
+    {
+        if ($this->providerLocked) {
+            throw new InvalidSessionState(
+                'Session is already assigned to a provider. Cannot reassign.'
+            );
+        }
+
+        if ($providerId === '') {
+            throw new InvalidSessionState('Provider ID cannot be empty.');
+        }
+
+        $this->providerId = $providerId;
+        $this->providerLocked = true;
+    }
+
+    public function availability(): AvailabilityInterface
+    {
+        return new ProviderAvailability(AvailabilityStatus::Available);
     }
 
     public function accept(): void
@@ -129,6 +159,11 @@ final class Session extends AggregateRoot
     public function id(): SessionId
     {
         return $this->id;
+    }
+
+    public function providerId(): string
+    {
+        return $this->providerId;
     }
 
     public function status(): SessionStatus

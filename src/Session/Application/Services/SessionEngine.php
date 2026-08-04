@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Vees\Core\Session\Application\Services;
 
+use Vees\Core\Provider\Domain\Specifications\CanAcceptSessionSpecification;
 use Vees\Core\Session\Application\Commands\CreateSessionCommand;
 use Vees\Core\Session\Application\Commands\AcceptSessionCommand;
 use Vees\Core\Session\Application\Commands\CompleteSessionCommand;
@@ -18,6 +19,7 @@ final readonly class SessionEngine
     public function __construct(
         private SessionRepository $repository,
         private SessionFactory $factory,
+        private CanAcceptSessionSpecification $canAcceptSpec,
     ) {
     }
 
@@ -42,6 +44,18 @@ final readonly class SessionEngine
 
         if (!$session) {
             throw new \RuntimeException('Session not found.');
+        }
+
+        // Invariant: Provider cannot have another active session
+        $activeSessionsCount = $this->repository->countActiveSessionsForProvider(
+            $session->providerId()
+        );
+
+        if (!$this->canAcceptSpec->isSatisfiedBy(
+            $session->availability(),
+            $activeSessionsCount
+        )) {
+            throw new \RuntimeException('Provider is not eligible to accept new sessions.');
         }
 
         $session->accept();

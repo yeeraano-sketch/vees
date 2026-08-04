@@ -9,19 +9,9 @@ use Vees\Core\Session\Domain\ValueObjects\SessionId;
 
 interface SessionRepository
 {
-    public function save(
-        Session $session,
-    ): void;
-
-    public function findById(
-        SessionId $id,
-    ): ?Session;
-
-    public function exists(
-        SessionId $id,
-    ): bool;
-
-    public function delete(
-        Session $session,
-    ): void;
+    public function save(Session $session): void;
+    public function findById(SessionId $id): ?Session;
+    public function exists(SessionId $id): bool;
+    public function delete(Session $session): void;
+    public function countActiveSessionsForProvider(string $providerId): int;
 }
