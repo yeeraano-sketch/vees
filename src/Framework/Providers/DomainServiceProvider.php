@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Vees\Core\Framework\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Vees\Core\Framework\Dispatcher\HandlerResolver;
 use Vees\Core\Framework\Modules\ModulesRegistry;
 use Vees\Core\SharedKernel\Application\Bus\QueryBus;
 use Vees\Core\SharedKernel\Application\Bus\SynchronousQueryBus;
 use Vees\Core\SharedKernel\Application\EventBus\AsyncEventBus;
 use Vees\Core\SharedKernel\Application\EventBus\EventBus;
-use Vees\Core\SharedKernel\Application\Resolver\HandlerResolver;
 
 final class DomainServiceProvider extends ServiceProvider
 {
