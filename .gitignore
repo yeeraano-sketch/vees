@@ -4,3 +4,21 @@
 /.phpunit.result.cache
 /.DS_Store
 composer.lock
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+storage/logs/
+
+# Database
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.swp
+*~
