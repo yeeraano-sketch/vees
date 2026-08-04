@@ -6,9 +6,11 @@ namespace Vees\Core\Payment\Domain\Aggregates\Payment;
 
 use Vees\Core\Payment\Domain\Enums\PaymentMethod;
 use Vees\Core\Payment\Domain\Enums\PaymentStatus;
-use Vees\Core\Payment\Domain\Events\PaymentCreated;
 use Vees\Core\Payment\Domain\Events\PaymentCompleted;
+use Vees\Core\Payment\Domain\Events\PaymentCreated;
 use Vees\Core\Payment\Domain\Events\PaymentFailed;
+use Vees\Core\Payment\Domain\Events\PaymentRefunded;
+use Vees\Core\Payment\Domain\Exceptions\InvalidPaymentState;
 use Vees\Core\Payment\Domain\ValueObjects\Money;
 use Vees\Core\Payment\Domain\ValueObjects\PaymentId;
 use Vees\Core\SharedKernel\Domain\AggregateRoot;
@@ -32,7 +34,6 @@ final class Payment extends AggregateRoot
         Money $money,
         PaymentMethod $method,
     ): self {
-
         $payment = new self(
             id: $id,
             providerId: $providerId,
@@ -42,37 +43,61 @@ final class Payment extends AggregateRoot
             status: PaymentStatus::Pending,
         );
 
-        $payment->recordEvent(
-            new PaymentCreated($id)
-        );
+        $payment->recordEvent(new PaymentCreated($id->value()));
 
         return $payment;
     }
 
     public function complete(): void
     {
-        if ($this->status === PaymentStatus::Paid) {
-            return;
+        if ($this->status !== PaymentStatus::Pending) {
+            throw new InvalidPaymentState(
+                sprintf('Cannot complete payment in "%s" status.', $this->status->value)
+            );
         }
 
         $this->status = PaymentStatus::Paid;
-
-        $this->recordEvent(
-            new PaymentCompleted($this->id)
-        );
+        $this->recordEvent(new PaymentCompleted($this->id->value()));
     }
 
     public function fail(): void
     {
-        if ($this->status === PaymentStatus::Failed) {
-            return;
+        if ($this->status !== PaymentStatus::Pending) {
+            throw new InvalidPaymentState(
+                sprintf('Cannot fail payment in "%s" status.', $this->status->value)
+            );
         }
 
         $this->status = PaymentStatus::Failed;
+        $this->recordEvent(new PaymentFailed($this->id->value()));
+    }
 
-        $this->recordEvent(
-            new PaymentFailed($this->id)
-        );
+    public function refund(): void
+    {
+        if ($this->status !== PaymentStatus::Paid) {
+            throw new InvalidPaymentState(
+                sprintf('Can only refund a paid payment. Current status: "%s".', $this->status->value)
+            );
+        }
+
+        $this->status = PaymentStatus::Refunded;
+        $this->recordEvent(new PaymentRefunded($this->id->value()));
+    }
+
+    public function cancel(): void
+    {
+        if ($this->status !== PaymentStatus::Pending) {
+            throw new InvalidPaymentState(
+                sprintf('Can only cancel a pending payment. Current status: "%s".', $this->status->value)
+            );
+        }
+
+        $this->status = PaymentStatus::Cancelled;
+    }
+
+    protected function identity(): mixed
+    {
+        return $this->id;
     }
 
     public function id(): PaymentId
@@ -88,18 +113,12 @@ final class Payment extends AggregateRoot
     public function snapshot(): array
     {
         return [
-
-            'id' => (string) $this->id,
-
-            'provider_id' => $this->providerId,
-
+            'id'            => (string) $this->id,
+            'provider_id'     => $this->providerId,
             'subscription_id' => $this->subscriptionId,
-
-            'amount' => $this->money->toArray(),
-
-            'method' => $this->method->value,
-
-            'status' => $this->status->value,
+            'amount'         => $this->money->toArray(),
+            'method'         => $this->method->value,
+            'status'         => $this->status->value,
         ];
     }
 }

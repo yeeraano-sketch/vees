@@ -16,13 +16,17 @@ final readonly class PaymentId extends ValueObject
     public static function fromString(
         string $value,
     ): self {
-
         return new self($value);
     }
 
     public function value(): string
     {
         return $this->value;
+    }
+
+    public function toArray(): array
+    {
+        return ['value' => $this->value];
     }
 
     public function __toString(): string
